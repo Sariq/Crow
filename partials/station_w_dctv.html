@@ -1,0 +1,20 @@
+<h4>Test Site: {{station._id}}</h4>
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{debug}}</div>
+
+
+<div class="row">
+  <ate-fixture ng-repeat="fixture in fixtures" info="fixture"></ate-fixture>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Statistics</div>
+  <div class="panel-body">
+    <div>Total:</div>
+    <div>Pass 98</div>
+    <div>Fail 2</div>
+    <div>Yeals 98%</div>
+  </div>
+</div>

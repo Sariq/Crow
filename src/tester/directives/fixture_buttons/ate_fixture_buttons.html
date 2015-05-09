@@ -1,0 +1,20 @@
+<div class="button-group">
+    <button  ng-disabled="fixture.runStatus.state!='stop'" type="button" ng-click="station.fixtureReport(fixture)"
+            class="btn btn-default ate-fixture-button">
+        <span class="glyphicon glyphicon-list-alt"></span> {{'Report'|translate}}
+    </button>
+    <button ng-class="getRunCss()" ng-focus="changeFocusStatus()" ate-auto-focus="{{focusStatus}}"
+            ng-if="fixture.runStatus.state=='ready' || fixture.runStatus.state=='clear'"
+            ng-click="station.runTse(fixture)"
+            class="btn ate-fixture-button " translate>Run
+    </button>
+    <button ng-if="fixture.runStatus.state=='running'" ng-click="station.stopTse(fixture)"
+            class="btn btn-warning ate-fixture-button " translate>Stop
+    </button>
+    <button ng-if="fixture.runStatus.state=='stopping'" ng-click="station.forceStopTse(fixture)"
+            class="btn btn-danger ate-fixture-button " translate>Force Stop
+    </button>
+    <button ng-if="fixture.runStatus.state=='stop'" ng-click="station.clearFixture(fixture)"
+            class="btn btn-active ate-fixture-button" translate>Clear
+    </button>
+</div>

@@ -1,0 +1,10 @@
+<ate-sticker-container></ate-sticker-container>
+<div class="row station-fix-margin">
+    <ate-fixture ng-repeat="fixture in station.fixtures"></ate-fixture>
+</div>
+<div ng-if="station.error" class="alert alert-danger" role="alert">{{station.error}}</div>
+<div ng-if="station.devMode" class="alert alert-warning" role="alert">{{station.debug}}</div>
+<ate-alert-panel ng-if="hasPermission('alert_panel')"></ate-alert-panel>
+<ate_debug_panel ng-if="hasPermission('debug_panel')"></ate_debug_panel>
+
+

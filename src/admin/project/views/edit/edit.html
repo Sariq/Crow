@@ -1,0 +1,58 @@
+<h1 class="page-header">Projects</h1>
+<ol class="breadcrumb">
+ <li><a href="#" translate>Admin</a></li>
+ <li><a href="#/projects" translate>Projects</a></li>
+ <li class="active" >{{edit.project._id}}</li>
+</ol>
+
+
+<div ng-if="edit.error" class="alert alert-danger" role="alert">{{edit.error}}</div>
+<div ng-if="edit.debug" class="alert alert-warning" role="alert">{{edit.debug}}</div>
+
+<h3 >{{edit.project._id}}</h3>
+
+<div class="well">
+ <form class="form-horizontal" role="form">
+
+ <div class="well">
+ <form class="form-horizontal" role="form">
+
+    <div class="form-group">
+    <label for="project_family" class="col-sm-2 control-label">Project Family</label>
+    <div class="col-sm-10">
+      <select class="form-control"
+              ng-model="edit.project.project_family_id"
+              id="project_family"
+        ng-options="pf._id as pf.name for pf in edit.info.projectFamilies">
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="edit.project.name" id="name" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="part_number" class="col-sm-2 control-label">part_number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="edit.project.part_number" id="part_number" placeholder="Part Number">
+    </div>
+  </div>
+
+  <div class="form-group">
+   <div class="col-sm-2 control-label"></div>
+   <div class="col-sm-10">
+    <div class="btn-group col-sm-10">
+     <button ng-disabled="edit.project.error_code" style="width: 50%;" ng-click="edit.save();" class="btn btn-info"
+             translate>Save
+     </button>
+     <a style="width: 50%;" href="#/projects" class="btn btn-warning" translate>Cancel</a>
+    </div>
+   </div>
+  </div>
+ </form>
+</div>

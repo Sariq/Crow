@@ -1,0 +1,35 @@
+.product-box{
+    width: 20px;
+    height: 18px;
+}
+
+.product-box-empty{
+    color: #808080;
+}
+.product-box-full{
+    color:#000000;
+}
+.product-box-active {
+    color: #0000ff;
+}
+
+.container-box{
+    border-color: #000099;
+    border-width: 2px;
+    border-style: solid;
+    padding: 5px;
+    margin: 3px;
+}
+
+
+.container-box-active{
+    border-color:#808080;
+}
+
+.container-box-active{
+    border-color: #0000ff;
+}
+.container-box-full{
+    border-color:black;
+}
+

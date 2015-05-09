@@ -1,0 +1,20 @@
+.report-modal-title {
+    font-weight: bold;
+}
+
+.report-strong {
+
+}
+
+.report-modal-heading{
+    padding: 2px;
+}
+
+.report-modal-data{
+    padding: 2px;
+}
+
+.report-button-ok {
+    border-right: 0;
+    width: 80px;
+}

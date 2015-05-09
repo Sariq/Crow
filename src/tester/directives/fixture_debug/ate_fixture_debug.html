@@ -1,0 +1,15 @@
+<div ng-repeat="fixture in station.fixtures" class="col-lg-6">
+    <h4>{{fixture.pn}}</h4>
+    Run Status: <select ng-model="fixture.status" ng-options="s as s for s in runStatuses"></select>
+    Yield: <input ng-model="fixture.statistics.yield" size="4">
+    <h5>Cavities</h5>
+
+    <div class="row">
+        <div class="col-lg-2" ng-repeat="cavity in fixture.cavities">
+            <div>Requires Serial:<input type="checkbox" ng-model="cavity.require_serial"></div>
+            <div>status: <select ng-model="cavity.status" ng-options="s as s for s in cavityStatuses"></select>
+            </div>
+            <div>Enabled:<input type="checkbox" ng-model="cavity.enabled"></div>
+        </div>
+    </div>
+</div>

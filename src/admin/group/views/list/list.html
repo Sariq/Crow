@@ -1,0 +1,41 @@
+<h1 class="page-header" translate>Groups</h1>
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li class="active" translate>Groups</li>
+</ol>
+
+<div class="well">
+ <label translate>Search</label> <input placeholder="{{'Search'|translate}}" ng-model="q">
+ <a class="btn btn-info" href="#/group/add"><span class="fa fa-plus"></span>{{'Add Group'|translate}}</a>
+</div>
+
+
+<table class="table table-striped">
+ <thead>
+ <tr>
+  <td></td>
+  <td translate>Group Name</td>
+  <td translate>Description</td>
+
+
+ </tr>
+ </thead>
+ <tbody>
+ <tr ng-repeat="group in list.groups|filter:q">
+  <td>{{$index}}</td>
+
+  <td>{{group.name}}</td>
+  <td>{{group.description}}</td>
+
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/group/edit/{{group._id}}"></a>
+  </td>
+  <td>
+   <i object-name="Server" confirm-action="list.remove(group)"
+      class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+  </td>
+ </tr>
+ </tbody>
+</table>
+
+

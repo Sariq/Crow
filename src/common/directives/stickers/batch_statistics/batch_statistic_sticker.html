@@ -1,0 +1,20 @@
+<div class="batch-statistic-sticker-container" ng-class="yieldColors()">
+    <div class="batch-statistics-sticker-align-center">
+        <span class="glyphicon glyphicon-th batch-statistics-sticker-glyph"></span>
+    </div>
+    <div class="batch-statistics-sticker-align-center">
+        <span class="batch-statistic-sticker-yield">
+           {{station.batchStats.yield|number:1}}
+        </span>
+        <span class="batch-statistic-sticker-percent">%</span>
+    </div>
+    <div class="">
+        <div class="batch-statistic-sticker-block-pass batch-statistics-sticker-align-center pull-left">
+            <span class="batch-statistic-sticker-pass">{{station.batchStats.passed}}</span>
+        </div>
+        <div class="batch-statistic-sticker-block-fail batch-statistics-sticker-align-center  pull-right">
+            <span class="batch-statistic-sticker-failed">{{station.batchStats.failed}}</span>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

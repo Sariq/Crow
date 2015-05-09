@@ -1,0 +1,48 @@
+<h1 class="page-header" translate>Configurations</h1>
+<ol class="breadcrumb">
+ <li><a href="#">Admin</a></li>
+ <li class="active">Dut Configurations</li>
+</ol>
+
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{debug}}</div>
+
+<h3 class="page-heading" translate>Dut Configurations</h3>
+
+<div class="well">
+
+ <label translate>Configuration</label>
+ <select id="step" ng-model="list.configurationId"
+         ng-options="conf._id as conf.name  for conf in list.configurations"></select>
+ <a ng-if="!list.project_family_id" class="btn btn-info" href="#/dut_configuration/add/{{list.configurationId}}"><span class="fa fa-plus" title="Linux"></span>Add dut Configurations</a>
+
+</div>
+
+<table class="table table-striped">
+ <thead>
+ <tr>
+  <td></td>
+  <td translate>DUT Configuration Id</td>
+  <td translate>name</td>
+  <td translate>pn_cfg</td>
+  <td translate>pn_cfg_rev</td>
+ </tr>
+ </thead>
+ <tbody>
+
+ <tr ng-repeat="dut_conf in list.dutConfigurations|filter: { configuration_id: list.configurationId }">
+  <td>{{$index}}</td>
+  <td>{{dut_conf.configuration_id}}</td>
+  <td>{{dut_conf.name}}</td>
+  <td>{{dut_conf.station.pn_cfg}}</td>
+  <td>{{dut_conf.pn_cfg_rev}}</td>
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/dut_configuration/edit/{{dut_conf._id}}/{{list.configurationId}}"></a>
+  </td>
+  <td>
+   <i object-name="Dut Configuration" confirm-action="list.remove(dut_conf)"  class="btn btn-danger btn-xs glyphicon glyphicon-trash"></i>
+  </td>
+ </tr>
+ </tbody>
+</table>

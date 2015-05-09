@@ -1,0 +1,31 @@
+<scetion>
+
+  <a href="#/admin/tfe_conf/add" >Add TFE Configuration</a>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td></td>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Device</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="tse in tseConfigs">
+      <td>{{$index}}</td>
+      <td>{{tse.id}}</td>
+      <td>{{tse.name}}</td>
+      <td>{{tse.device}}</td>
+      <td>
+        <a href="#/admin/tfe_conf/edit/{{tf.id}}">Edit</a>
+      </td>
+      <td>
+        <button ng-click="remove(tse)" class="btn">Delete</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</scetion>

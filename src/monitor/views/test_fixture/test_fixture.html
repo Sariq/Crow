@@ -1,0 +1,25 @@
+<h1 class="page-header" translate>Test Fixtures</h1>
+<ol class="breadcrumb">
+    <li><a href="#/" translate>Monitor</a></li>
+    <li class="active" translate>Test Fixtures</li>
+</ol>
+
+<table ng-table="tableParams" class="table">
+    <tbody>
+
+    <tr ng-repeat="tf in fixtures">
+        <td data-title="'IP Address'" sortable="'_id'"><a href="http://{{ tf._id }}" target="_blank">{{tf._id}}</a></td>
+        <td data-title="'Class'" sortable="'info.name'">{{tf.info.name}}</td>
+        <td data-title="'TFE Version'" sortable="'info.tfe_version'">{{tf.info.tfe_version}}</td>
+        <td data-title="'Status'" sortable="'status'"
+                ng-class="{danger: tf.status===false, success: tf.status===true}">
+                {{ tf.status === true ? "Online" : "Offline"}}</td>
+        <td data-title="'Timestamp'" sortable="'info.time.$date'">{{tf.info.time.$date | date:'medium'}}</td>
+        <td data-title="'Last update'" sortable="'last_update'">{{tf.last_update}}</td>
+        <td > <button ng-click="tf.showHardware = !tf.showHardware">Show</button>
+            <pre  ng-if="tf.showHardware" pretty-json="tf.hardware"></pre>
+        </td>
+    </tr>
+    </tbody>
+
+</table>

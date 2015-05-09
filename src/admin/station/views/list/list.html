@@ -1,0 +1,51 @@
+<h1 class="page-header" translate>Stations</h1>
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li class="active" translate>Stations</li>
+</ol>
+
+<div class="well">
+ <form class="form-inline">
+  <input autofocus="autofocus" class="form-field" ng-model="list.q" placeholder="{{'Search'|translate}}">
+  <a class="btn btn-info" href="#/station/add">
+   <span class="fa fa-plus" title="Linux"
+         ></span>Add Station</a>
+ </form>
+</div>
+<table class="table table-striped">
+ <thead>
+ <tr>
+  <td></td>
+  <td translate>Name</td>
+  <td translate>Ip/Host</td>
+  <td translate>Configurations</td>
+  <td translate>Location</td>
+  <td translate>Edit</td>
+  <td translate>Delete</td>
+ </tr>
+ </thead>
+ <tr ng-repeat="station in list.stations|filter:list.q">
+  <td>{{$index}}</td>
+  <td>{{station.name}}</td>
+  <td>{{station.ip_address}}</td>
+  <td>
+   <div ng-repeat="cf in station.configurations">
+    <span>{{cf.pn_cfg}}</span>
+    <span>{{cf.pn_cfg_rev}}</span>
+   </div>
+  </td>
+  <td>{{station.location}}</td>
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/station/edit/{{station._id}}"></a>
+  </td>
+  <td>
+   <i object-name="Station" confirm-action="list.remove(station)"
+      class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+  </td>
+ </tr>
+ </tbody>
+</table>
+
+
+
+

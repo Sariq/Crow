@@ -1,0 +1,45 @@
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li><a href="#/projectFamilies" translate>Project Families</a></li>
+ <li><a href="#/projects/{{list.info.projectFamily._id}}" >{{list.info.project.name}} {{'Projects|translate'}}</a></li>
+ <li class="active" >{{list.info.project.name}} : {{'Steps'|translate}}</li>
+</ol>
+
+<h3 translate>Steps</h3>
+
+
+<div class="well">
+  <label translate>Search</label> <input placeholder="{{'search'|translate}}" ng-model="q">
+  <a class="btn btn-info" href="#/step/add/{{list.info.project._id}}"><span class="fa fa-plus" ></span>{{'Add Step'|translate}}</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+    <td translate>Name</td>
+    <td translate>Part Number</td>
+    <td translate>Test Sequences</td>
+    <td translate>Edit</td>
+    <td translate>Delete</td>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="step in list.steps|filter:q">
+    <td>{{$index}}</td>
+    <td>{{step.name}}</td>
+    <td>{{step.part_number}}</td>
+    <td>
+      <a class="btn btn-warning" href="#/test_sequences/{{step._id}}" translate>Test Sequences</a>
+    </td>
+    <td>
+      <a class="btn btn-warning" href="#/step/edit/{{step._id}}" translate>Edit</a>
+    </td>
+    <td>
+      <button ng-click="list.remove(step)" class="btn btn-danger"  translate>Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

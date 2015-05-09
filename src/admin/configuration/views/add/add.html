@@ -1,0 +1,76 @@
+<h1 class="page-header" translate>Add Configuration</h1>
+<ol class="breadcrumb">
+ <li><a href="#">Admin</a></li>
+  <li><a href="#/projectEditor" translate>Project Families</a></li>
+ <li ng-if="add.project_family_id"><a href="#/configurations/{{add.project_family_id}}/{{add.project_id}}/{{add.step_id}}">Test Configurations</a></li>
+ <li ng-if="!add.project_family_id"><a href="#/configurations">Configurations</a></li>
+ <li ng-if="add.isNew" class="active" translate>Add</li>
+ <li ng-if="!add.isNew" class="active">{{add.configuration._id}}</li>
+</ol>
+
+
+<div ng-if="add.configuration.error" class="alert alert-danger" role="alert">{{add.configuration.error}}</div>
+<div ng-if="add.configuration.debug" class="alert alert-warning" role="alert">{{add.configuration.debug}}</div>
+
+
+
+<div class="well">
+ <form class="form-horizontal" role="form">
+
+  <div class="form-group">
+   <label for="project-family" class="col-sm-2 control-label" translate>Project Family</label>
+   <div class="col-sm-10">
+    <select class="form-control"
+            id="project-family"
+            ng-model="add.configuration.project_family_id"
+            ng-options="pf._id as pf.name  for pf in add.projectFamilies"
+            ng-change="add.projectFamiliesChange(true)"></select>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="project" class="col-sm-2 control-label">Project</label>
+   <div class="col-sm-10">
+    <select class="form-control"
+            id="project"
+            ng-model="add.configuration.project_id"
+            ng-options="project.id as project.name  for project in add.projects"
+            ng-change="add.projectChange(true)"></select>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="step" class="col-sm-2 control-label">Step</label>
+   <div class="col-sm-10">
+    <select class="form-control" id="step" ng-model="add.configuration.step_id"
+            ng-options="step.id as step.name  for step in add.steps"></select>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="name" class="col-sm-2 control-label" translate>Name</label>
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.configuration.name" id="name" placeholder="Name">
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="description" class="col-sm-2 control-label" translate>Description</label>
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.configuration.description" id="description" placeholder="Description">
+   </div>
+  </div>
+
+
+  <div class="form-group">
+   <div class="col-sm-2 control-label"></div>
+   <div class="col-sm-10">
+    <div class="btn-group col-sm-10">
+     <button ng-disabled="add.configuration.error_code" style="width: 50%;" ng-click="add.save();" class="btn btn-info">Save
+     </button>
+     <a style="width: 50%;" href="#/admin/test_configurations" class="btn btn-warning">Cancel</a>
+    </div>
+   </div>
+  </div>
+ </form>
+</div>

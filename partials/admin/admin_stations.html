@@ -1,0 +1,41 @@
+<ol class="breadcrumb">
+  <li><a href="#">Admin</a></li>
+  <li class="active">Stations</li>
+</ol>
+
+
+<div class="well">
+  <label>Search</label> <input placeholder="search" ng-model="q">
+  <a class="btn btn-info" href="#/admin/stations/add"><span class="fa fa-plus" ></span>Add Station</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Ip/Host</td>
+    <td>Location</td>
+    <td>Department</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="station in stations|filter:q">
+    <td>{{$index}}</td>
+    <td>{{station.name}}</td>
+    <td>{{station.description}}</td>
+    <td>{{station.ip_address}}</td>
+    <td>{{station.location}}</td>
+    <td>{{station.department}}</td>
+    <td>
+      <a class="btn btn-warning" href="#/admin/stations/edit/{{station.ip_address}}">Edit</a>
+    </td>
+    <td>
+      <button ng-click="remove(station)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

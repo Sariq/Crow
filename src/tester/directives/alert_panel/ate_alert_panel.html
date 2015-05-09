@@ -1,0 +1,26 @@
+<div class="well alert-panel">
+ <button
+   tooltip="Web Socket"
+   tooltip-trigger="mouseenter"
+   tooltip-placement="right"
+   title="{{'WebSocket'|translate}}"
+   ng-class="{'btn-danger': wsStatus=='Closed','btn-success': wsStatus=='Open'}"
+   type="button"
+   class="btn btn-xs">
+  <span class="glyphicon glyphicon-cloud-upload "></span>
+ </button>
+
+ <!--
+ <div ng-repeat="srv in serverStatuses">{{srv}}</div>
+ -->
+ <button ng-repeat="srv in serverStatuses"
+   tooltip-html-unsafe="{{getInfo(srv)}}"
+   tooltip-trigger="mouseenter"
+   tooltip-placement="right"
+   ng-class="{'btn-danger': srv.status=='offline',
+         'btn-success': srv.status=='online','btn-warning': srv.status=='warning'}"
+   class="btn btn-xs">
+  <span class="glyphicon" ng-class="getSrvIcon(srv.name)" ></span>
+ </button>
+
+</div>

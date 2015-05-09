@@ -1,0 +1,30 @@
+.ate-log-panel{
+    width: 100%;
+    min-height: 250px;
+    max-height: 250px;
+    overflow-y: scroll;
+    border-color: #0000ff;
+    border-style: solid;
+    border-width: 1px;
+}
+.ate-log-panel-table{
+    width:100%
+}
+.ate-log-panel-level-col{
+    width:5%
+}
+.ate-log-panel-time-col{
+    width:5%
+}
+.ate-log-panel-text-col{
+    width:15%
+}
+.ate-log-panel-entity-col{
+    width:5%
+}
+.ate-log-panel-duration-col{
+    width:5%
+}
+.ate-log-panel-data-col{
+    width:45%
+}

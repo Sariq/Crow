@@ -1,0 +1,93 @@
+<h1 class="page-header" translate>Project Family Details</h1>
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li><a href="#/projectEditor" translate>Project Families</a></li>
+ <li class="active">{{detail.projectFamily.name}}</li>
+</ol>
+
+<div ng-if="detail.error" class="alert alert-danger" role="alert">{{detail.error}}</div>
+<div ng-if="detail.debug" class="alert alert-warning" role="alert">{{detail.debug}}</div>
+
+<div ng-init="projectFamily.editMode=false" class="well">
+ <button ng-if="!projectFamily.editMode" translate ng-click="projectFamily.editMode=true"
+         class="btn btn-warning btn-xs glyphicon glyphicon-pencil"></button>
+ <button ng-if="projectFamily.editMode" translate ng-click="projectFamily.editMode=false;detail.save('step')"
+         class="btn btn-success btn-xs glyphicon glyphicon-ok"></button>
+ <label translate>Project Family</label>:
+ <input ng-if="projectFamily.editMode" ng-model="detail.projectFamily.name">
+ <i ng-if="!projectFamily.editMode">{{detail.projectFamily.name}}</i>
+</div>
+<h4 translate>Projects</h4>
+<table class="table">
+ <thead>
+ <tr>
+  <td ><strong translate>ID</strong></td>
+  <td ><strong translate>Name</strong></td>
+  <td ><strong translate>Description</strong></td>
+  <td></td>
+  <td ><strong translate>Steps</strong></td>
+ </tr>
+ </thead>
+ <tbody>
+ <tr ng-repeat="project in detail.projectFamily.projects">
+  <td>{{project.id}}</td>
+  <td ng-if="!project.editMode">{{project.name}}</td>
+  <td ng-if="project.editMode"><input ng-model="project.name"></td>
+  <td ng-if="!project.editMode">{{project.description}}</td>
+  <td ng-if="project.editMode"><input ng-model="project.description"></td>
+  <td>
+   <button ng-if="!project.editMode" translate ng-click="project.editMode=true"
+           class="btn btn-warning btn-xs glyphicon glyphicon-pencil"></button>
+   <button ng-if="project.editMode" translate ng-click="project.editMode=false;detail.save('step')"
+           class="btn btn-success btn-xs glyphicon glyphicon-ok"></button>
+  <td>
+   <table class="table table-striped">
+    <thead>
+    <tr>
+     <td ><strong translate>Id</strong></td>
+     <td><strong translate>Name</strong></td>
+     <td><strong translate>Description</strong></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-init="step.editMode=false" ng-repeat="step in project.steps">
+
+     <td>{{step.id}}</td>
+
+     <td ng-if="!step.editMode">{{step.name}}</td>
+     <td ng-if="step.editMode"><input ng-model="step.name"></td>
+     <td ng-if="!step.editMode">{{step.description}}</td>
+     <td ng-if="step.editMode"><input ng-model="step.description"></td>
+     <td>
+
+      <button ng-if="!step.editMode" translate ng-click="step.editMode=true"
+              class="btn btn-warning btn-xs glyphicon glyphicon-pencil"></button>
+      <button ng-if="step.editMode" translate ng-click="step.editMode=false;detail.save('step')"
+              class="btn btn-success btn-xs glyphicon glyphicon-ok"></button>
+     </td>
+
+    </tr>
+    </tbody>
+   </table>
+   <div class="well">
+    <input ng-model="project.newStep.name" placeholder="Step Name">
+    <input ng-model="project.newStep.description" placeholder="Description">
+    <button class="btn btn-info" ng-click="detail.addStep(project)" translate>Add Step</button>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+
+<div class="well">
+ <input ng-model="detail.newProject.name" placeholder="Project Name">
+ <input ng-model="detail.newProject.description" placeholder="Description">
+ <button class="btn btn-info" ng-click="detail.addProject()" translate>Add Project</button>
+</div>
+
+
+<a class="btn btn-success" href="#/projectEditor" translate>Save</a>
+ 

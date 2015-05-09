@@ -1,0 +1,20 @@
+<div class="user-statistic-sticker-container" ng-class="yieldColors()">
+    <div class="user-statistics-sticker-align-center">
+        <span class="glyphicon glyphicon-user user-statistics-sticker-glyph"></span>
+    </div>
+    <div class="user-statistics-sticker-align-center">
+        <span class="user-statistic-sticker-yield">
+           {{station.userStats.yield|number:1}}
+        </span>
+        <span class="user-statistic-sticker-percent">%</span>
+    </div>
+    <div class="">
+        <div class="user-statistic-sticker-block-pass user-statistics-sticker-align-center pull-left">
+            <span class="user-statistic-sticker-pass">{{station.userStats.passed}}</span>
+        </div>
+        <div class="user-statistic-sticker-block-fail user-statistics-sticker-align-center  pull-right">
+            <span class="user-statistic-sticker-failed">{{station.userStats.failed}}</span>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

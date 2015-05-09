@@ -1,0 +1,69 @@
+<div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{debug}}</div>
+
+
+<h3>Product Configuration</h3>
+<form role="form">
+
+  <div class="row">
+    <div class="form-group">
+      <label for="pn_cfg">Product Number</label>
+      <input ng-model="productConfig.pn_cfg" class="form-control" id="pn_cfg" placeholder="Product Number">
+    </div>
+  </div>
+  <div class="row">
+      <div class="form-group">
+        <label for="pn_cfg_rev">Revision</label>
+        <input ng-model="productConfig.pn_cfg_rev" class="form-control" id="pn_cfg_rev" placeholder="Product Number">
+      </div>
+    </div>
+
+  <div ui-tree>
+    <ol data-nodrag ui-tree-nodes="" ng-model="list">
+      <li ng-repeat="item in list" ui-tree-node>
+        <div ui-tree-handle>
+          {{item.title}}
+          <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+              class="glyphicon glyphicon-remove"></span></a>
+          <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)"
+             style="margin-right: 8px;"><span
+              class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="item.items">
+          <li ng-repeat="subItem in item.items" ui-tree-node>
+            <div ui-tree-handle>
+              {{subItem.title}}
+              <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span
+                  class="glyphicon glyphicon-remove"></span></a>
+              <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(subItem)"
+                 style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </div>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+
+  <!-- as a Dom element -->
+<treecontrol class="tree-classic"
+   tree-model="dataForTheTree"
+   options="treeOptions"
+   on-selection="showSelected(node)"
+   selected-node="node1">
+   employee: {{node.name}} age {{node.age}}
+  <input placeholder="Key">: <input placeholder="Value">
+   <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(subItem)"
+                 style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span>
+              </a>
+</treecontrol>
+
+
+  <div class="btn-group">
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="clear" class="btn btn-default">Cancel</button>
+  </div>
+</form>
+
+

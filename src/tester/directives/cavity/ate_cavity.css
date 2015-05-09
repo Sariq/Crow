@@ -1,0 +1,62 @@
+/**********************************************
+ateCavity css
+**********************************************/
+.ate-cavity{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 3px;
+}
+
+.cavity-input-group{
+    margin: 0;
+    padding: 2px;
+}
+
+.cavity-input{
+    width: 100%;
+    padding: 0;
+}
+
+.has-feedback .form-control {
+    padding-right: 22px;
+    padding-left: 2px;
+}
+
+.cavity-input-glyph{
+    padding: 0;
+}
+
+.cavity-well{
+    padding: 2px;
+    margin: 0;
+    width: 95%;
+}
+
+.cavity-container{
+    padding: 0;
+    margin: 2px;
+
+}
+
+.cavity-progress-bar{
+    margin: 0;
+    margin-left: 1px;
+    margin-top: 2px;
+    width: 60%;
+    height: 21px;
+}
+
+.cavity-report-button{
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.cavity-text{
+    margin: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 10px;
+}

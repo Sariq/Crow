@@ -1,0 +1,102 @@
+<ol class="breadcrumb">
+  <li><a href="#">Admin</a></li>
+  <li><a href="#/admin/test_fixtures" >Test Fixtures</a></li>
+  <li class="active">{{testFixture._id}}</li>
+</ol>
+
+
+<div ng-if="testFixture.error" class="alert alert-danger" role="alert">{{testFixture.error}}</div>
+<div ng-if="testFixture.debug" class="alert alert-warning" role="alert">{{testFixture.debug}}</div>
+
+
+<h3>Edit/Add Test Fixture</h3>
+
+    {{stations}}
+<div class="well">
+<form class="form-horizontal" role="form"   >
+
+  <div  ng-class="{'has-error':!testFixture.ip_address}" class="form-group ">
+    <label for="ip_address" class="col-sm-2 control-label">Hostname or ip address</label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="testFixture.ip_address" id="ip_address"
+             placeholder="Hostname or ip address" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="device" class="col-sm-2 control-label">Device</label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="testFixture.device" id="device" placeholder="Device">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="os" class="col-sm-2 control-label">Operating System</label>
+
+    <div class="col-sm-10">
+      <select class="form-control" id="os" ng-model="testFixture.os" ng-options="o as o for o in os"></select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cavities" class="col-sm-2 control-label" required>Number of cavities</label>
+
+    <div class="col-sm-10">
+      <input type="number" class="form-control" ng-model="testFixture.cavities" id="cavities" placeholder="Number of cavities">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="vertical_cavities" class="col-sm-2 control-label">Vertical Cavities</label>
+
+    <div class="col-sm-10">
+      <input type="number" class="form-control" ng-model="testFixture.vertical_cavities" id="vertical_cavities"
+             placeholder="Vertical Cavities">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="horizontal_cavities" class="col-sm-2 control-label">Horizontal Cavities</label>
+
+    <div class="col-sm-10">
+      <input type="number" class="form-control" ng-model="testFixture.horizontal_cavities" id="horizontal_cavities"
+             placeholder="Horizontal Cavities">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="stage" class="col-sm-2 control-label">Stage</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="stage" ng-model="testFixture.stage" ng-options="n as n for n in stages"></select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="station" class="col-sm-2 control-label">Station</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="station" ng-model="testFixture.station">
+        <option  ng-repeat="station in stations"  value="{{station._id}}"> {{station.name }}  {{station.ip_address}}</option>
+      </select>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="location" class="col-sm-2 control-label">Location</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="location" ng-model="testFixture.location" ng-options="location as location for location in locations"></select>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-2 control-label"></div>
+    <div class="col-sm-10">
+      <div class="btn-group col-sm-10">
+        <button ng-disabled="testFixture.error_code" style="width: 50%;" ng-click="save();" class="btn btn-info">Save</button>
+        <a style="width: 50%;" href="#/admin/test_fixtures" class="btn btn-warning">Cancel</a>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

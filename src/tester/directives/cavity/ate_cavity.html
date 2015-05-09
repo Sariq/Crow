@@ -1,0 +1,43 @@
+<div class="ate-cavity clearfix"
+     ng-class="getCss()"
+     ng-dblclick="toggleEnabled()">
+    <div class="cavity-input-group form-group has-feedback clearfix"
+         ng-class="getSerialCss()">
+        <input ng-blur="onBlur()" ng-focus="changeFocusStatus()" ate-auto-focus="{{focusStatus}}"   ng-if="cavity.require_serial"
+               ng-disabled="disableSerialInput()"
+               ng-change="evaluateLocalSerial(cavity.serial,fixture)"
+               ng-model="cavity.serial"
+               placeholder="Serial Number"
+               type="text"
+               class="form-control input-sm cavity-input">
+        <span class="glyphicon form-control-feedback cavity-input-glyph"
+              ng-class="getSerialGlyphCss()">
+        </span>
+    </div>
+    <div class="clearfix container-fluid cavity-container">
+        <progressbar class="pull-left cavity-progress-bar"
+                     animate="false"
+                     value="cavity.percentage"
+                     type="warning">
+            <span>{{cavity.percentage}}%</span>
+        </progressbar>
+        <button ng-disabled="!enableReport()"
+                type="button"
+                class="btn btn-default btn-xs cavity-report-button pull-right"
+                ng-click="station.cavityReport(fixture, cavity.serial, cavity.idx)">
+            <span class="glyphicon glyphicon-list-alt"></span>
+        </button>
+    </div>
+    <div class="cavity-well">
+        <div class="text-left cavity-text">
+            Test:<strong>{{cavity.test_name}}</strong>
+        </div>
+        <div class="text-left cavity-text">
+            Code:{{cavity.atp_code}}
+        </div>
+    </div>
+</div>
+
+
+
+

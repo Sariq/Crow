@@ -1,0 +1,31 @@
+<div class="ate-fixture-yield-container">
+    <div class="ate-fixture-yield-progress">
+        <div class="progress-bar progress-bar-success"
+             value="fixture.stats.passRatio"
+             ng-style="{'width':  getProgressBarPass() + '%' }">
+            <div class="ate-fixture-yield-progress-value"
+                  ng-if="getProgressBarFail() < 90">{{fixture.stats.passed}}</div>
+        </div>
+        <div class="progress-bar progress-bar-danger"
+             value="fixture.stats.failRatio"
+             ng-style="{'width':  getProgressBarFail() + '%' }">
+            <div class="ate-fixture-yield-progress-value"
+                  ng-if="getProgressBarFail() > 10">{{fixture.stats.failed}}</div>
+        </div>
+    </div>
+    <div class="ate-fixture-yield-circle-block pull-right">
+        <progress-arc
+                class="ate-fixture-yield-circle-progress"
+                ng-class="getCircleProgressBarYield()"
+                size="{{size}}"
+                stroke="{{stroke}}"
+                stroke-width="{{strokeWidth}}"
+                complete="progress"
+                counter-clockwise="{{counterClockwise}}">
+        </progress-arc>
+        <div class="ate-fixture-yield-circle-text">
+            <div class="ate-fixture-yield-circle-number"
+                 ng-style="{'color': stroke}">{{progress * 100|number:0}}</div>
+        </div>
+    </div>
+</div>

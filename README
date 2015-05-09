@@ -1,0 +1,17 @@
+Installation
+------------
+
+
+Install Node & Bower
+
+
+npm install bower
+
+cd src/client
+
+run the following commands:
+
+bower install
+npm install
+
+

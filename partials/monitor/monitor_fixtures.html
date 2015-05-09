@@ -1,0 +1,9 @@
+<div class="well">
+  <label>Search</label> <input placeholder="search" ng-model="q">
+</div>
+
+<div class="row">
+  <div class="well col-sm-3" ng-repeat="fixture in fixtures|filter:q">
+    {{fixture._id}}
+  </div>
+</div>

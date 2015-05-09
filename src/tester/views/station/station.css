@@ -1,0 +1,16 @@
+.station-panel{
+    padding: 5px;
+    margin: 0;
+}
+
+.station-fix-margin{
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.station-panel-body{
+    padding: 5px;
+}
+

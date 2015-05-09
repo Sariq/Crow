@@ -1,0 +1,42 @@
+<div class="well">
+  <label>Search</label> <input placeholder="search" ng-model="q">
+</div>
+
+<div class="row">
+  <div class="well col-sm-4" ng-repeat="station in tmpStations|filter:q">
+    <h4>{{station._id}} : Operator: Ron</h4>
+
+    <div ng-class="{'fixture-idle':fixture.status=='idle',
+    'fixture-running':fixture.status=='running',
+    'fixture-offline':fixture.status=='offline'}" class="col-sm-3" ng-repeat="fixture in getStationFixtures(station)">
+      {{fixture.name}}
+      {{fixture.status}}
+    </div>
+  </div>
+
+  </div>
+  <table class="table-striped">
+    <thead>
+    <tr>
+    <td>Product</td>
+    <td>Site</td>
+    <td>Fixtures</td>
+    <td>Yield</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="station in tmpStations|filter:q|orderBy:station.product">
+      <td>{{station.product}}</td>
+      <td>{{station._id}}</td>
+      <td><div ng-class="{'fixture-idle':fixture.status=='idle',
+    'fixture-running':fixture.status=='running',
+    'fixture-offline':fixture.status=='offline'}" class="col-sm-3"
+               ng-repeat="fixture in getStationFixtures(station)">
+      {{fixture.name}}
+      {{fixture.status}}
+    </div></td>
+      <td>{{station.yield}}</td>
+    </tr>
+    </tbody>
+  </table>
+

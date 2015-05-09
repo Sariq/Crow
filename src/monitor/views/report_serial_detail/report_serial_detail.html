@@ -1,0 +1,91 @@
+<h1 class="page-header" translate>Serial details</h1>
+<ol class="breadcrumb">
+    <li><a href="#/" translate>Monitor</a></li>
+    <li><a href="#/report" translate>Executions Report</a></li>
+    <li><a href="#/report_serial/{{ serialNumber }}" translate>Serial details Report</a></li>
+    <li class="active" translate>Serial details</li>
+</ol>
+
+<form class="form-inline">
+    <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{ format }}" ng-model="query.start_date"
+               is-open="openedStart" min-date="minDate" datepicker-options="dateOptions"
+               date-disabled="disabled(date, mode)" ng-required="false" close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openStart($event)"><i
+                        class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+    </div>
+
+    <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{ format }}" ng-model="query.start_date"
+               is-open="openedEnd"
+               min-date="minDate" datepicker-options="dateOptions"
+               date-disabled="disabled(date, mode)" ng-required="false" close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i
+                        class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+    </div>
+
+    <div class="input-group">
+        <label class="sr-only" for="inputSerialNumber">Serial number</label>
+        <input type="text" class="form-control" id="inputSerialNumber" ng-model="query.serial"
+               placeholder="Serial number">
+    </div>
+
+    <div class="input-group">
+        <label class="sr-only" for="inputBatch">Batch number</label>
+        <input type="text" class="form-control" id="inputBatch" ng-model="query.batch" placeholder="Batch number">
+    </div>
+
+    <div class="input-group">
+        <label class="sr-only" for="inputPN_CFG">PNG_CFG</label>
+        <input type="text" class="form-control" id="inputPN_CFG" ng-model="query.pn_cfg" placeholder="PNG_CFG">
+    </div>
+
+    <div class="input-group">
+        <label class="sr-only" for="inputPNG_CFG_REV">PNG_CFG_REV</label>
+        <input type="text" class="form-control" id="inputPNG_CFG_REV" ng-model="query.pn_cfg_rev"
+               placeholder="PNG_CFG_REV">
+    </div>
+
+    <div class="input-group">
+        <select class="form-control" id="selectLimit">
+            <option ng-repeat="val in [10,20,50,100,200,300,500]">{{ val }}</option>
+        </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-success" ng-click="doSearch()">Search</button>
+    <button type="submit" class="btn btn-success" ng-click="doClear()">Clear</button>
+</form>
+</br>
+
+<div ng-repeat="res in data">
+    <h3>Test report: {{ serialNumber }}</h3>
+
+    <p class="text-right">Date: {{ res[1][1]['$date'] | date : "medium" }}</p>
+    <table class="table table-stripped">
+        <thead>
+        <tr class="info">
+            <th ng-repeat="item in res[0]">{{ item }}</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="(idx, line) in res" ng-show="idx != 0" class="report-modal-heading">
+            <td>{{ line[0] }}</td>
+            <td>{{ line[1]['$date'] | date : "medium"}}</td>
+            <td>{{ line[2] }}</td>
+            <td>{{ line[3] }}</td>
+            <td>{{ line[4] }}</td>
+            <td ng-class="{danger: line[5]===false, success: line[5]===true}">
+                <div ng-switch on="line[5]">
+                    <span ng-switch-when="true">PASS</span>
+                    <span ng-switch-when="false">FAIL</span>
+                    <span ng-switch-default></span>
+                </div>
+        </tr>
+    </table>
+    </br>
+</div>
+

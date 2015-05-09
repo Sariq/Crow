@@ -1,0 +1,83 @@
+<style>
+  .cavity{
+    padding:5px;
+    margin-top:4px ;
+    margin-bottom:4px ;
+  }
+  .cavity-success{
+    background-color: darkseagreen ;
+  }
+  .cavity-fail{
+    background-color: indianred;
+  }
+
+  .fixture{
+
+  }
+</style>
+
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{debug}}</div>
+
+<div class="todo">
+
+</div>
+<!--
+<div>{{domain}}</div>
+<div>{{domain1}}</div>
+<div>{{station}}</div>
+<div>fixtures:{{monitor.tfList}}</div>
+-->
+
+<div class="row">
+<div ng-repeat="fixture in monitor.tfList" class="fixture panel panel-info col-lg-6 ">
+  <div class="panel-heading">{{fixture.name}}</div>
+  <div class="panel-body">
+
+    <div class="row" ng-repeat="line in fixture.cavities">
+    <div ng-class="{'cavity-success':getCavityStatus()>2,'cavity-fail':getCavityStatus()<2}" class="cavity well col-lg-3" ng-repeat="c in line">
+      <input ng-disabled="!c.active" size="10" placeholder="serial">
+      <!--
+      <div>
+        <span class="fa fa-linux" title="Linux"></span>
+        <span class="fa fa-windows" title="Windows"></span>
+      </div>
+      -->
+      <!--
+      <div>
+        <a href="#">Test RF - Passed</a>
+      </div>
+      -->
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          RF Test
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="panel-footer row">
+    <div class="col-lg-6">
+      <button ng-click="runTse(fixture.ip_address)" class="btn btn-success btn-small" >Run</button>
+      <button class="btn btn-small" >Clear</button>
+      <button class="btn btn-small btn-warning" >Report Error</button>
+    </div>
+    <div class="col-lg-6">
+      <span class="fa fa-linux" title="Linux">Yield 98% pass 98, fail2, Errors 32</span>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Statistics</div>
+    <div class="panel-body">
+   <div>Total:</div>
+   <div>Pass 98</div>
+   <div>Fail 2</div>
+   <div>Yeals 98%</div>
+  </div>
+</div>

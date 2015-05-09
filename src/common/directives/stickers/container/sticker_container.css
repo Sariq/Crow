@@ -1,0 +1,24 @@
+/**********************************************
+sticker container panel
+**********************************************/
+.ate-sticker-container-cell{
+    padding: 3px;
+}
+
+.ate-sticker-container-table{
+
+}
+
+.ate-sticker-container-panel{
+    height: 135px;
+    padding: 0;
+    margin: 0;
+}
+
+.ate-sticker-container-heading{
+    padding: 3px;
+}
+
+.ate-sticker-container-body{
+    padding: 3px;
+}

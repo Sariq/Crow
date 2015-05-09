@@ -1,0 +1,32 @@
+<sction >
+  <input ng-model="q" placeholder="search" />
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td></td>
+      <td>Username</td>
+      <td>Admin</td>
+      <td>Tech Support</td>
+      <td>Developer</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users|filter:q">
+      <td>{{$index}}</td>
+      <td>{{user._id}}</td>
+      <td><input ng-model="user.admin" type="checkbox" /></td>
+      <td><input ng-model="user.tech_support" type="checkbox" /></td>
+      <td><input ng-model="user.dev" type="checkbox" /></td>
+      <td>
+        <button ng-click="update(user)" class="btn">Save</button>
+      </td>
+      <td>
+        <button ng-click="remove(user)" class="btn">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</sction>

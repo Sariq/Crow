@@ -1,0 +1,69 @@
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li><a href="#/steps" translate>Steps</a></li>
+ <li class="active" translate>Add Step</li>
+</ol>
+
+
+<div ng-if="add.error" class="alert alert-danger" role="alert">{{add.error}}</div>
+<div ng-if="add.debug" class="alert alert-warning" role="alert">{{add.debug}}</div>
+
+<h3 translate>Add Step</h3>
+
+<div class="well">
+ <form class="form-horizontal" role="form">
+
+
+    <div class="form-group">
+    <label for="project" class="col-sm-2 control-label">Project </label>
+    <div class="col-sm-10">
+      <select class="form-control"
+              ng-model="add.step.project_id"
+              id="project"
+        ng-options="pf._id as pf.name for pf in add.info.projects">
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="add.step.name" id="name" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description" class="col-sm-2 control-label">description</label>
+    <div class="col-sm-10">
+      <textarea type="text" class="form-control" ng-model="add.step.description" id="description" placeholder="Description">
+      </textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="test_set_path" class="col-sm-2 control-label">test_set_path</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="add.step.test_set_path" id="test_set_path" placeholder="test_set_path">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="test_set_class" class="col-sm-2 control-label">test_set_class</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="add.step.test_set_class" id="test_set_class" placeholder="test_set_class">
+    </div>
+  </div>
+
+  <div class="form-group">
+   <div class="col-sm-2 control-label"></div>
+   <div class="col-sm-10">
+    <div class="btn-group col-sm-10">
+     <button ng-disabled="add.step.error_code" style="width: 50%;" ng-click="add.save();" class="btn btn-info"
+             translate>Save
+     </button>
+     <a style="width: 50%;" href="#/steps" class="btn btn-warning">Cancel</a>
+    </div>
+   </div>
+  </div>
+ </form>
+</div>

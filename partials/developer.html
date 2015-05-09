@@ -1,0 +1,142 @@
+<div ng-show="!batch_eval" xmlns="http://www.w3.org/1999/html">
+  <div class="col-md-4 col-md-offset-4">
+  <div class="login-panel panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Batch Number</h3>
+    </div>
+    <div class="panel-body">
+      <div ng-if="batch_error" class="alert alert-danger" >{{batch_error}}</div>
+      <form role="form">
+        <fieldset>
+          <div class="form-group">
+            <label for="batch_number">Batch Number</label>
+            <input id="batch_number" class="form-control" ng-model="batch_number" placeholder="Batch Number"  autofocus="">
+          </div>
+          <div class="form-group">
+            <label for="cfg_pn">cfg_pn</label>
+            <input id="cfg_pn" class="form-control" ng-model="cfg_pn" placeholder="cfg_pnr">
+          </div>
+          <div class="form-group">
+            <label for="cfg_pn_rev">cfg_pn_rev</label>
+            <input id="cfg_pn_rev" class="form-control" ng-model="cfg_pn_rev" placeholder="cfg_pn_rev">
+          </div>
+          <input type="submit" ng-click="sendBatch()" value="Send" class="btn btn-lg btn-success btn-block" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div ng-show="batch_eval">
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Developer</li>
+</ol>
+
+<div><a href="/doc/developer.html">Help</a></div>
+
+<h4>Developer Page</h4>
+<h5>Current Batch:   <strong> {{batch_number}}</strong>
+  <button class="btn" ng-click="changeBatch()" >Change Batch Number</button>
+</h5>
+
+<div class="well">
+  <div>Search:<input ng-model="q" placeholder="Search Fixture"></div>
+  <div>Celery Task Location:<select ng-model="taskLocation">
+    <option ng-repeat="l in taskLocations" value="l">{{l}}</option>
+  </select></div>
+
+</div>
+
+<div class="row">
+  <div ng-repeat="fixture in fixtures|filter:q" class="fixture panel  col-lg-6"
+       ng-class="{'panel-info':fixture.run_status=='running',
+                  'panel-default':!fixture.run_status,
+                  'panel-success':fixture.run_status=='completed',
+                  'panel-danger':fixture.run_status=='disabled'}">
+    <div class="panel-heading">{{fixture._id}} - {{fixture.run_status}} - {{fixture.progress}} -{{fixture.execution_id}}</div>
+    <div class="panel-body">
+      <!--
+      <div class="alert alert-danger" role="alert">{{fixture.error}}</div>
+      <div ng-if="fixture.debug" class="alert alert-warning" role="alert">{{fixture.debug}}</div>
+      -->
+      <!--
+      <div class="btn-group">
+        <button class="btn btn-xs btn-info" ng-click="fixture.run_status='running'">Running</button>
+        <button class="btn btn-xs btn-success" ng-click="fixture.run_status='completed'">Completed</button>
+        <button class="btn btn-xs" ng-click="fixture.run_status=false">Clear</button>
+        <button class="btn btn-xs btn-danger" ng-click="fixture.run_status='disabled'">Disabled</button>
+      </div>
+      -->
+      <div class="row">
+        <div class="cavity well col-lg-3" ng-class="{'cavity-inactive':!c.active,
+                                                     'cavity-success':c.active && c.runStatus.verdict == 'pass',
+                                                     'cavity-fail':c.active && c.runStatus.verdict == 'fail' }"
+             ng-repeat="c in fixture.cavityInfo">
+          <input ng-model="c.serial" class="form-control"
+                 id="cavity_{{fixture._id}}_{{$index}}"
+                 ng-disabled="!c.active || fixture.run_status" size="10" placeholder="serial"
+                 ng-keyup="checkKey($event,fixture,$index,c.serial);">
+
+          <div class="progress cavity-progress">
+            <div class="progress-bar progress-bar-striped  cavity-bar"
+                 role="progressbar"
+                 animate="false"
+                 aria-valuenow="60"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 ng-style="{'width':c.runStatus.pre+'%' }">
+              {{c.runStatus.test_name}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped"
+             role="progressbar"
+             animate="false"
+             aria-valuenow="60"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             ng-style="{'width':fixture.progress +'%' }">
+          {{fixture.progress}}%
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer row">
+      <div class="col-lg-6">
+        <button ng-disabled="fixture.run_status"
+                ng-click="runTse(fixture)"
+                ng-keyup="checkRunKey($event,fixture);"
+                class="btn btn-success btn-small">Run
+        </button>
+        <button ng-disabled="fixture.run_status != 'end'"
+                ng-click="clearFixture(fixture)" class="btn btn-small">Clear
+        </button>
+        <button class="btn btn-small btn-warning">Report Error</button>
+      </div>
+      <div class="col-lg-6">
+        <span class="fa fa-linux" title="Linux">Yield 98% pass 98, fail2, Errors 32</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<script type="text/ng-template" id="modal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{data.msg.title}}</h3>
+    </div>
+    <div class="modal-body">
+        {{data.msg.message}}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

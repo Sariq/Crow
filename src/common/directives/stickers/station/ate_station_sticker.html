@@ -1,0 +1,29 @@
+<div class="station-sticker-container">
+    <div class="station-sticker-host">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="">{{getHostName()}}</span>
+    </div>
+    <div class="stations-sticker-batch-block">
+        <div>
+            <span class="glyphicon glyphicon-th stations-sticker-glyph">{{station.batch.batch_number}}</span>
+            <span class="station-sticker-batch">{{station.batch.batch_number}}</span>
+            <span class="station-sticker-batch" ng-if="!station.batch.batch_number">not available</span>
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-paperclip stations-sticker-glyph"></span>
+            <span class="station-sticker-configuration">
+                <strong>{{station.batch.batch_conf.configuration.pn_cfg}},
+                    {{station.batch.batch_conf.configuration.pn_cfg_rev}}
+                </strong>
+            </span>
+        </div>
+    </div>
+    <div class="stations-sticker-button-container pull-right">
+        <button ng-click="changeBatch()"
+                class="stations-sticker-button"
+                type="button">
+            <span class="glyphicon glyphicon-repeat"></span>
+        </button>
+    </div>
+</div>
+<div class="clearfix"></div>

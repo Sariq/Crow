@@ -1,0 +1,43 @@
+<ol class="breadcrumb">
+  <li><a href="#">Admin</a></li>
+  <li class="active">Test Fixtures{{stations}}</li>
+</ol>
+
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{debug}}</div>
+
+
+<div class="well">
+  <label>Search</label> <input placeholder="search" ng-model="q">
+  <a class="btn btn-info" href="#/admin/test_fixtures/add"><span class="fa fa-plus" title="Linux"></span>Add Test
+    Fixture</a>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+    <td>Ip/Host</td>
+    <td>Station</td>
+    <td>Device</td>
+    <td>OS</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="tf in testFixtures|filter:q">
+    <td>{{$index}}</td>
+    <td>{{tf.ip_address}}</td>
+    <td>{{tf.station._id}}</td>
+    <td>{{tf.device}}</td>
+    <td>{{tf.os}}</td>
+    <td>
+      <a class="btn btn-warning" href="#/admin/test_fixtures/edit/{{tf._id}}">Edit</a>
+    </td>
+    <td>
+      <button ng-click="remove(tf)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

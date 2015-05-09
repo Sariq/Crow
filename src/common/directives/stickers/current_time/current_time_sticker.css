@@ -1,0 +1,51 @@
+/**********************************************
+ateStationPanel css
+**********************************************/
+.ate-current-time-sticker {
+
+}
+
+.ate-current-time-sticker-container {
+    padding: 8px;
+    background-color: rgb(111, 191, 220);
+    height: 115px;
+}
+
+.ate-current-time-sticker-date {
+    font-size: 22px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    height: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.ate-current-time-sticker-glyph {
+    font-size: 22px;
+    font-weight: normal;
+    height: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.ate-current-time-sticker-year {
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.ate-current-time-sticker-time {
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.ate-current-time-sticker-align-right {
+    text-align: right;
+}
+
+.ate-current-time-sticker-align-center {
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+<h1 class="page-header" translate>Servers</h1>
+<ol class="breadcrumb">
+  <li><a href="#/" translate>Admin</a></li>
+  <li class="active" translate>Servers</li>
+</ol>
+
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{list.error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{list.debug}}</div>
+
+
+<div class="well">
+  <label translate>Search</label> <input placeholder="{{'Search'|translate}}" ng-model="q">
+  <a class="btn btn-info" href="#/server/add"><span class="fa fa-plus" title="Linux"></span>Add Server</a>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+    <td translate>Hostname</td>
+    <td translate>IP Address</td>
+    <td translate>Comments</td>
+    <td translate>Operation System</td>
+    <td translate>Comments</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="server in list.servers|filter:q">
+    <td>{{$index}}</td>
+    <td>{{server.hostname}}</td>
+    <td>{{server.ip_address}}</td>
+    <td>{{server.comments}}</td>
+    <td>{{server.os}}</td>
+
+    <td><span ng-repeat="service in server.services"></span></td>
+    <td>
+      <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil"href="#/server/edit/{{server._id}}"></a>
+    </td>
+    <td>
+      <i object-name="Server" confirm-action="list.remove(server)"  class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,43 @@
+<div  class="panel container-fluid pull-left ate-fixture-block"
+     ng-class="[getFixtureCss(),getFixtureFocusCss()]" >
+    <div class="panel-heading ate-fixture-heading">
+        <div class="row from-inline ate-fixture-heading-content">
+            <span class="ate-fixture-heading from-group ate-fixture-heading-text">
+                Fixture:  <strong>{{fixture.pn}}</strong>
+            </span>
+            <div class="from-group pull-right ate-fixture-heading">
+                <ate-run-timer></ate-run-timer>
+                <ate-run-stage-indicator></ate-run-stage-indicator>
+            </div>
+        </div>
+        <div class="row form-inline ate-fixture-heading-content">
+            <div class="form-group ate-fix  ture-heading-text">
+                <span>Progress:</span>
+            </div>
+            <progressbar class="ate-fixture-progress-bar ate-fixture-heading form-group pull-right"
+                         animate="false"
+                         value="fixture.runStatus.percentage"
+                         type="warning">
+                <span>
+                    {{fixture.runStatus.percentage}}%
+                </span>
+            </progressbar>
+        </div>
+    </div>
+    <div class="panel-body ate-fixture-body">
+        <table class="table-bordered ate-fixture-table">
+            <tr ng-repeat="line in cavity_array">
+                <td ng-repeat="cavity in line">
+                    <ate-cavity "></ate-cavity>
+                </td>
+            </tr>
+        </table>
+   </div>
+    <div class="panel-footer ate-fixture-footer">
+        <div class="alert fixture-status-bar" ng-class="getStatusBar()" role="alert">
+            {{fixture.statusBar.description}}
+        </div>
+        <ate-fixture-buttons class="pull-right"></ate-fixture-buttons>
+        <ate-fixture-yield></ate-fixture-yield>
+    </div>
+</div>

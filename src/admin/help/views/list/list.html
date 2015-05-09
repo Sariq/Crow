@@ -1,0 +1,38 @@
+<h1 class="page-header" translate>Help</h1>
+<ol class="breadcrumb">
+  <li><a href="#/" translate>Admin</a></li>
+  <li class="active" translate>helps</li>
+</ol>
+
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{list.error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{list.debug}}</div>
+
+
+<div class="well">
+  <label translate>Search</label> <input placeholder="{{'Search'|translate}}" ng-model="q">
+  <a class="btn btn-info" href="#/help/add"><span class="fa fa-plus" title="Linux"></span>Add Help</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+     <th translate>Title</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="help in list.helps|filter:q">
+    <td>{{$index}}</td>
+    <td>{{help.languages[0].title}}</td>
+
+    <td>
+      <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil"href="#/help/edit/{{help._id}}"></a>
+    </td>
+    <td>
+      <i object-name="help" confirm-action="list.remove(help)"  class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>

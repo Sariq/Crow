@@ -1,0 +1,85 @@
+<h4>Test Site: {{station._id}}</h4>
+<div><a href="/doc/runner.html">Help</a></div>
+
+<div class="row">
+  <div ng-repeat="fixture in fixtures" class="fixture panel  col-lg-6"
+       ng-class="{'panel-info':fixture.run_status=='running',
+                  'panel-default':!fixture.run_status,
+                  'panel-success':fixture.run_status=='completed',
+                  'panel-danger':fixture.run_status=='disabled'}">
+    <div class="panel-heading">{{fixture._id}} - {{fixture.run_status}} - {{fixture.progress}} -{{fixture.execution_id}}</div>
+    <div class="panel-body">
+      <!--
+      <div class="alert alert-danger" role="alert">{{fixture.error}}</div>
+      <div ng-if="fixture.debug" class="alert alert-warning" role="alert">{{fixture.debug}}</div>
+      -->
+      <!--
+      <div class="btn-group">
+        <button class="btn btn-xs btn-info" ng-click="fixture.run_status='running'">Running</button>
+        <button class="btn btn-xs btn-success" ng-click="fixture.run_status='completed'">Completed</button>
+        <button class="btn btn-xs" ng-click="fixture.run_status=false">Clear</button>
+        <button class="btn btn-xs btn-danger" ng-click="fixture.run_status='disabled'">Disabled</button>
+      </div>
+      -->
+      <div class="row">
+        <div class="cavity well col-lg-3" ng-class="{'cavity-inactive':!c.active,
+                                                     'cavity-success':c.active && c.runStatus.verdict == 'pass',
+                                                     'cavity-fail':c.active && c.runStatus.verdict == 'fail' }"
+             ng-repeat="c in fixture.cavityInfo">
+          <input ng-model="c.serial" class="form-control"
+                 id="cavity_{{fixture._id}}_{{$index}}"
+                 ng-disabled="!c.active || fixture.run_status" size="10" placeholder="serial"
+                 ng-keyup="checkKey($event,fixture,$index,c.serial);">
+
+          <div class="progress cavity-progress">
+            <div class="progress-bar progress-bar-striped  cavity-bar"
+                 role="progressbar"
+                 aria-valuenow="60"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 ng-style="{'width':c.runStatus.pre+'%' }">
+              {{c.runStatus.test_name}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped"
+             role="progressbar"
+             aria-valuenow="60"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             ng-style="{'width':fixture.progress +'%' }">
+          {{fixture.progress}}%
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer row">
+      <div class="col-lg-6">
+        <button ng-disabled="fixture.run_status"
+                ng-click="runTse(fixture)"
+                ng-keyup="checkRunKey($event,fixture);"
+                class="btn btn-success btn-small">Run
+        </button>
+        <button ng-disabled="fixture.run_status != 'end'"
+                ng-click="clearFixture(fixture)" class="btn btn-small">Clear
+        </button>
+        <button class="btn btn-small btn-warning">Report Error</button>
+      </div>
+      <div class="col-lg-6">
+        <span class="fa fa-linux" title="Linux">Yield 98% pass 98, fail2, Errors 32</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Statistics</div>
+  <div class="panel-body">
+    <div>Total:</div>
+    <div>Pass 98</div>
+    <div>Fail 2</div>
+    <div>Yeals 98%</div>
+  </div>
+</div>

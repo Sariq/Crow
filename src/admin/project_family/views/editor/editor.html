@@ -1,0 +1,92 @@
+<h1 class="page-header" translate>Project Families</h1>
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li><a class="active" translate>Project Families</a></li>
+</ol>
+
+
+<div ng-if="edit.error" class="alert alert-danger" role="alert">{{edit.error}}</div>
+<div ng-if="edit.debug" class="alert alert-warning" role="alert">{{edit.debug}}</div>
+
+
+<table class="table">
+ <thead>
+ <tr>
+  <td translate style="width:10%">Project Family Name</td>
+  <td style="width:90%"></td>
+  <td style="width:5%"></td>
+  <td style="width:5%"></td>
+ </tr>
+ </thead>
+ <tbody>
+ <tr ng-repeat="pf in editor.projectFamilies">
+
+  <td>
+   <span ng-show="!pf.opened" class="glyphicon glyphicon-plus" ng-click="pf.opened=true"></span>
+   <span ng-show="pf.opened" class="glyphicon glyphicon-minus" ng-click="pf.opened=false"></span>
+   <a ng-click="pf.opened=!pf.opened">{{pf.name}}</a>
+
+  </td>
+
+
+  <td>
+   <div ng-show="pf.opened">
+    <table class="table ">
+     <thead>
+     <tr>
+      <td translate>ID</td>
+      <td translate>Name</td>
+      <td translate>Description</td>
+      <td translate>Steps</td>
+     </tr>
+     </thead>
+     <tbody>
+     <tr ng-repeat="project in pf.projects">
+      <td>{{project.id}}</td>
+      <td>{{project.name}}</td>
+      <td>{{project.name}}</td>
+      <td ng-show="pf.opened">
+       <table class="table">
+        <thead>
+        <tr>
+         <td translate>Id</td>
+         <td translate>Name</td>
+         <td translate>Description</td>
+         <td></td>
+         <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="step in project.steps">
+         <td>{{step.id}}</td>
+         <td>{{step.name}}</td>
+         <td>{{step.description}}</td>
+         <td><a href="#/fixtures/{{pf._id}}/{{project.id}}/{{step.id}}">Fixtures</a></td>
+         <td><a href="#/configurations/{{pf._id}}/{{project.id}}/{{step.id}}">Configuration</a></td>
+         <!--
+         <td><a href="#/station/{{pf._id}}/{{project.id}}/{{step.id}}">Station</a></td>
+         -->
+        </tr>
+        </tbody>
+       </table>
+      </td>
+     </tr>
+     </tbody>
+    </table>
+   </div>
+  </td>
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/projectFamily/detail/{{pf._id}}"></a>
+  </td>
+  <td>
+   <i object-name="Project Family" confirm-action="editor.remove(pf)"
+      class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+  </td>
+ </tr>
+ </tbody>
+</table>
+<div class="well">
+ <input ng-model="editor.newPf.name" placeholder="Product Family Name">
+ <button ng-disabled="!editor.newPf.name" class="btn btn-info" ng-click="editor.addPf()" translate>Add Project Family
+ </button>
+</div>

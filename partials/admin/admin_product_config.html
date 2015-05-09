@@ -1,0 +1,33 @@
+<h3>Product Configuration</h3>
+<div class="well">
+
+  <label>Search</label> <input placeholder="search" ng-model="q">
+  <a class="btn btn-info" href="#/admin/product_config/add"><span class="fa fa-plus" title="Linux">
+
+  </span>Add Product Configuration</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+    <td>Name</td>
+    <td>Product Number</td>
+    <td>Revisions</td>
+    <td>Edit</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="pc in productConfigs|filter:q">
+    <td>{{$index}}</td>
+    <td>{{pc.name}}</td>
+    <td>{{pc.pn_cfg}}</td>
+    <td>
+      <select >
+        <option ng-repeat="r in pc.rev ">{{r}}</option>
+      </select>
+    </td>
+    <td><a href="#/admin/product_config/edit{{pc._id}}" class="btn btn-default">Edit</a></td>
+  </tr>
+  </tbody>
+</table>

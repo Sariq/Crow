@@ -1,0 +1,9 @@
+/**********************************************
+ateAlertPanel css
+**********************************************/
+.alert-panel {
+    padding: 4px;
+}
+.alert-panel button{
+    margin: 2px;
+}

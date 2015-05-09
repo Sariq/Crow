@@ -1,0 +1,46 @@
+<div class="ate-log-panel">
+ <table class="table table-stripped ate-log-panel-table">
+  <thead>
+  <tr>
+   <td class="ate-log-panel-level-col" translate>Level</td>
+   <td class="ate-log-panel-time-col" translate> Time</td>
+   <td class="ate-log-panel-text-col" translate>Text</td>
+   <td class="ate-log-panel-entity-col" translate>Entity</td>
+   <td class="ate-log-panel-duration-col" translate>Duration [ms]</td>
+   <td class="ate-log-panel-data-col" translate>Data</td>
+  </tr>
+
+  <tr>
+   <td>
+    <select ng-model="search.level" ng-options="l.id as l.name for l in levels"></select>
+   </td>
+   <td></td>
+   <td>
+    <input ng-model="search.txt"/>
+   </td>
+   <td>
+    <input ng-model="search.entity"/>
+   </td>
+   <td>
+    <input ng-model="search.duration"/>
+   </td>
+   <td>data</td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr ng-class="getLineClass(log.level)" ng-repeat="log in logs|filter:searchLog">
+   <td>{{getLevelName(log.level)}}</td>
+   <td>{{log.time | date:"h:mm:ss.sss"}}</td>
+   <td>{{log.txt}}</td>
+   <td>{{log.entity}}</td>
+   <td>{{log.duration}}</td>
+   <td>
+    <button ng-if="log.data" ng-click="log.showData = !log.showData">Data</button>
+    <pre ng-if="log.showData" pretty-json="log.data"></pre>
+   </td>
+  </tr>
+  </tbody>
+ </table>
+
+</div>

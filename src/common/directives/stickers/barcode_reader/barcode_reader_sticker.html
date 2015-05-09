@@ -1,0 +1,12 @@
+<div class="ate-barcode-reader-sticker-container">
+    <div class="btn-group btn-toggle">
+        <label>Barcode Reader</label><br>
+        <button ng-click="toggleReaderMode()" class="btn btn-sm  "
+                ng-class="{'btn-default':!getReaderMode(),'btn-primary':getReaderMode(),'active':getReaderMode()}"
+          translate>ON</button>
+        <button ng-click="toggleReaderMode()" class="btn btn-sm  active"
+                ng-class="{'btn-default':getReaderMode(),'btn-primary':!getReaderMode(),'active':!getReaderMode()}"
+          translate >OFF</button>
+    </div>
+</div>
+<div class="clearfix"></div>

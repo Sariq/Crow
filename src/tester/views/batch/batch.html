@@ -1,0 +1,32 @@
+<div class="col-md-4 col-md-offset-4">
+ <div class="login-panel panel panel-default">
+  <div class="panel-heading">
+   <h3 class="panel-title" translate>Batch Number</h3>
+  </div>
+  <div class="panel-body">
+   <div ng-if="batch.error" class="alert alert-danger">{{batch.error}}</div>
+   <div ng-if="batch.debug" class="alert alert-danger">{{batch.debug}}</div>
+   <form role="form">
+    <fieldset>
+     <div class="form-group">
+      <label for="batch_number" translate>Batch Number</label>
+      <input id="batch_number" class="form-control"
+             ng-model="batch.batch.batch_number" placeholder="Batch Number" autofocus="">
+     </div>
+     <div class="form-group">
+      <label for="pn_cfg" translate>cfg_pn</label>
+      <input id="pn_cfg" class="form-control" ng-model="batch.batch.pn_cfg"
+             placeholder="pn_cfg">
+     </div>
+     <div class="form-group">
+      <label for="pn_cfg_rev" translate>cfg_pn_rev</label>
+      <input id="pn_cfg_rev" class="form-control" ng-model="batch.batch.pn_cfg_rev"
+             placeholder="pn_cfg_rev">
+     </div>
+     <input type="submit" ng-click="batch.evaluateBatch()" value="{{'Send'|translate}}"
+            class="btn btn-lg btn-success btn-block"/>
+    </fieldset>
+   </form>
+  </div>
+ </div>
+</div>

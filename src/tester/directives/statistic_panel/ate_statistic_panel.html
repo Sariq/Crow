@@ -1,0 +1,28 @@
+<div class="station-panel">
+    <div class="pull-right">
+        Batch
+        <button class="btn btn-success" type="button">
+            Yield: <span class="badge">{{station.batchStats.yield|number:2}}%</span>
+        </button>
+        <button class="btn" type="button">
+            Passed: <span class="badge">{{station.batchStats.passed}}</span>
+        </button>
+        <button class="btn" type="button">
+            Failed: <span class="badge">{{station.batchStats.failed}}</span>
+        </button>
+    </div>
+
+    <div class="pull-right">
+        USER
+        <button class="btn btn-danger" type="button">
+            Yield: <span class="badge">{{station.userStats.yield| number:2}}%</span>
+        </button>
+        <button class="btn" type="button">
+            Passed: <span class="badge">{{station.userStats.passed}}</span>
+        </button>
+        <button class="btn" type="button">
+            Failed: <span class="badge">{{station.userStats.failed}}</span>
+        </button>
+    </div>
+</div>
+<div class="clearfix"></div>

@@ -1,0 +1,66 @@
+
+.batch-statistic-sticker-container {
+    padding: 8px;
+    height: 115px;
+}
+
+.batch-statistic-sticker-yield {
+    font-size: 38px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    height: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.batch-statistic-sticker-percent {
+    font-size: 12px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    height: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    vertical-align: text-top;
+}
+
+.batch-statistic-sticker-failed {
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.batch-statistic-sticker-pass {
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.batch-statistic-sticker-block-pass {
+    width: 60px;
+    background-color: rgb(115, 223, 91);
+    padding-bottom: 2px;
+}
+
+.batch-statistic-sticker-block-fail {
+    width: 60px;
+    background-color: rgb(252, 73, 75);
+    padding-bottom: 2px;
+}
+
+.batch-statistics-sticker-glyph{
+    font-size: 22px;
+    font-weight: normal;
+    height: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.batch-statistics-sticker-align-right {
+    text-align: right;
+}
+
+.batch-statistics-sticker-align-center {
+    text-align: center;
+}

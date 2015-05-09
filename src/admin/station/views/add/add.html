@@ -1,0 +1,80 @@
+<h1 class="page-header" translate>Add Station</h1>
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li><a href="#/stations" translate>Stations</a></li>
+ <li ng-if="add.isNew" class="active" translate>Add Station</li>
+ <li ng-if="!add.isNew" class="active" translate>{{add.station.ip_address}}</li>
+</ol>
+
+<div ng-if="add.error" class="alert alert-danger" role="alert">{{ add.error }}</div>
+<div ng-if="add.debug" class="alert alert-warning" role="alert">{{ add.debug }}</div>
+
+<h3 translate>Add Station</h3>
+<div class="well">
+ <form name="myForm" class="form-horizontal" role="form" novalidate>
+  <div ng-class="{'has-error':!add.station.ip_address}" class="form-group ">
+   <label for="ip_address" class="col-sm-2 control-label">Hostname or ip address</label>
+
+   <div class="col-sm-10">
+    <input type="text" class="form-control" name="ipaddress" ng-model="add.station.ip_address"
+           id="ip_address"
+           placeholder="Hostname or ip address" required>
+   </div>
+  </div>
+  <div class="form-group">
+   <label for="name" class="col-sm-2 control-label">Name</label>
+
+   <div class="col-sm-10">
+    <input type="text" ng-model="add.station.name" class="form-control" id="name"
+           placeholder="Unique Test station Name" required>
+   </div>
+  </div>
+  <div class="form-group">
+   <label for="description" class="col-sm-2 control-label">Description</label>
+
+   <div class="col-sm-10">
+    <input type="text" ng-model="add.station.description" class="form-control" id="description"
+           placeholder="Describe the Station" required>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="location" class="col-sm-2 control-label">Location</label>
+
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.station.location" id="location"
+           placeholder="Location">
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="department" class="col-sm-2 control-label">Department</label>
+
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.station.department" id="department"
+           placeholder="Department">
+   </div>
+  </div>
+
+<table class="table">
+ <tr>
+  <td translate>pn_cfg</td>
+  <td translate>pn_cfg_rev</td>
+  <td translate>Delete</td>
+ </tr>
+ <tr ng-repeat="cf in add.station.configurations">
+  <td><input ng-model="cf.pn_cfg"></td>
+  <td><input ng-model="cf.pn_cfg_rev"></td>
+  <td><button ng-click="add.deleteConfiguration($index)">Del</button> </td>
+ </tr>
+</table>
+<button ng-click="add.addConfiguration()" translate>Add Configuration</button>
+ </form>
+</div>
+
+<div class="text-center" class="btn-group">
+    <button class="btn btn-info" ng-click="add.save()">Save</button>
+    <a href="#/helps" class="btn btn-warning"> Cancel</a>
+</div>
+<br>
+<br>

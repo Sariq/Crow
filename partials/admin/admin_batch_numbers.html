@@ -1,0 +1,28 @@
+<ol class="breadcrumb">
+  <li><a href="#">Admin</a></li>
+  <li class="batch_numbers">Batch Numbers</li>
+</ol>
+
+
+<div class="well">
+  <label>Search</label> <input placeholder="search" ng-model="q">
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td></td>
+    <td>ID</td>
+    <td>Produced</td>
+    <td>Repaired</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="batch in batch_numbers|filter:q">
+    <td>{{$index}}</td>
+    <td>{{batch.sql_server_id}}</td>
+    <td>{{batch.produced}}</td>
+    <td>{{batch.repaired}}</td>
+  </tr>
+  </tbody>
+</table>

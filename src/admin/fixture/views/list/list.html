@@ -1,0 +1,111 @@
+<h1 class="page-header" translate>Fixtures</h1>
+
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li><a href="#/projectEditor" translate>Project Families</a></li>
+ <li class="active" translate>Test Fixtures</li>
+</ol>
+
+<div ng-if="error" class="alert alert-danger" role="alert">{{ error }}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{ debug }}</div>
+
+<div class="well">
+ <form class="form-inline">
+  <div class="form-group">
+   <label translate>Project Family</label>
+
+  <span class="nullable">
+    <label class="sr-only" for="project-family">Email address</label>
+         <select id="project-family" class="form-control"
+                 ng-model="list.project_family_id"
+                 ng-options="pf._id as pf.name  for pf in list.projectFamilies"
+                 ng-change="list.projectFamiliesChange(true)">
+          <option value="">-- All --</option>
+         </select>
+      </span>
+   <label translate>Project</label>
+
+  <span class="nullable">
+    <select id="project" class="form-control"
+            ng-model="list.project_id"
+            ng-options="project.id as project.name  for project in list.projects"
+            ng-change="list.projectChange(true)">
+     <option value="">-- All --</option>
+    </select>
+  </span>
+   <label translate>Step</label>
+   <span class="nullable">
+    <select id="step" ng-model="list.step_id" class="form-control"
+            ng-options="step.id as step.name  for step in list.steps"
+            ng-change="list.stepChange(true)">
+     <option value="" translate>-- All --</option>
+    </select>
+  </span>
+  </div>
+  <a ng-if="!list.project_family_id" class="btn btn-info" href="#/fixture/add"><span class="fa fa-plus"
+                                                                                     title="Linux"
+                                                                                     autofocus="autofocus"></span>Add
+   Test Fixture</a>
+  <a ng-if="list.project_family_id" class="btn btn-info"
+     href="#/fixture/add/{{ list.project_family_id }}/{{ list.project_id }}/{{ list.step_id }}"><span
+    class="fa fa-plus" title="Linux">
+ </span><span translate>Add Test Fixture</span></a>
+ </form>
+
+
+</div>
+<table id="fixtureTable" class="table table-striped">
+ <thead>
+ <tr>
+  <td></td>
+  <td><strong translate>Part Number</strong></td>
+  <td><strong translate>Ip</strong></td>
+  <td><strong translate>pn_cfg</strong></td>
+  <td><strong translate>pn_cfg_rev</strong></td>
+  <td><strong translate>Station</strong></td>
+
+  <td></td>
+  <td></td>
+ </tr>
+ </thead>
+ <tbody>
+
+ <tr
+   ng-repeat="tf in list.fixtures|filter:{project_family_id: list.project_family_id,project_id: list.project_id,step_id:list.step_id}">
+  <td>{{$index}}</td>
+  <td>{{ tf.pn }}</td>
+  <td>{{ tf.ip_address }}</td>
+  <td>{{ tf.pn_cfg }}</td>
+  <td>{{ tf.pn_cfg_rev }}</td>
+  <td>{{ tf.station }}</td>
+  <!--
+  <td ng-repeat="station in list.stations" ng-if="station._id==tf.station">{{ station.name }}</td>
+  -->
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/fixture/edit/{{ tf.pn }}"></a>
+  </td>
+  <td>
+   <i object-name="Fixture" confirm-action="list.remove(tf)"
+      class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+  </td>
+ </tr>
+ <tr ng-if="!list.project_family_id" ng-repeat="tf in list.fixtures">
+  <td>{{$index}}</td>
+  <td>{{ tf.pn }}</td>
+  <td>{{ tf.ip_address }}</td>
+  <td>{{ tf.pn_cfg }}</td>
+  <td>{{ tf.pn_cfg_rev }}</td>
+  <td>{{ tf.station }}</td>
+  <!--
+  <td ng-repeat="station in list.stations" ng-if="station._id==tf.station">{{ station.name }}</td>
+  -->
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/fixture/edit/{{ tf.pn }}"></a>
+  </td>
+  <td>
+   <i object-name="Fixture" confirm-action="list.remove(tf)"
+      class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+  </td>
+ </tr>
+ </tbody>
+</table>

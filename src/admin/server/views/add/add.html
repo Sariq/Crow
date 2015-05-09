@@ -1,0 +1,89 @@
+<h1 class="page-header" translate>Add Server</h1>
+<ol class="breadcrumb">
+  <li><a href="#/">Admin</a></li>
+  <li><a href="#/servers">Servers</a></li>
+  <li class="active" translate>Add Server</li>
+</ol>
+
+
+<div ng-if="add.error" class="alert alert-danger" role="alert">{{add.error}}</div>
+<div ng-if="add.debug" class="alert alert-warning" role="alert">{{add.debug}}</div>
+
+
+<h3 translate>Add Server</h3>
+
+<div class="well">
+  <form class="form-horizontal" role="form">
+    <div class="form-group ">
+      <label for="hostname" class="col-sm-2 control-label" translate>Hostname</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ng-model="add.server.hostname" id="hostname"
+               placeholder="Hostname" required>
+      </div>
+    </div>
+    <div class="form-group ">
+      <label for="ip_address" class="col-sm-2 control-label">ip address</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ng-model="add.server.ip_address" id="ip_address"
+               placeholder="ip address">
+      </div>
+    </div>
+    <div class="form-group ">
+      <label for="comments" class="col-sm-2 control-label">comments</label>
+
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ng-model="add.server.comments" id="comments"
+               placeholder="comments">
+      </div>
+    </div>
+    <div class="form-group ">
+      <label for="os" class="col-sm-2 control-label">Operating System</label>
+
+      <div class="col-sm-10">
+        <select class="form-control" ng-model="add.server.os" id="os">
+          <option ng-repeat="o in add.info.os" value="{{o}}">{{o}}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button class="btn btn-info" ng-click="add.addService()"  translate>Add Service</button>
+    <table class="table">
+      <thead>
+      <tr>
+        <td translate>Service Type</td>
+        <td translate>Port</td>
+        <td translate>Comments</td>
+        <td translate>Instances</td>
+        <td translate>Monitor URL</td>
+        <td translate>Log URL</td>
+        <td></td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr ng-repeat="service in add.server.services">
+
+        <td><select ng-model="service.type">
+          <option ng-selected="service.type==st" ng-repeat="st in add.info.service_type" value="{{st}}">{{st}}</option>
+        </select></td>
+        <td><input ng-model="service.port">{{add.server.services.port}}</td>
+        <td><input ng-model="service.comments"></td>
+        <td><input size="4" ng-model="service.instances"></td>
+        <td><input ng-model="service.monitor_url"></td>
+        <td><input ng-model="service.log_url"></td>
+        <td>
+          <button ng-if="service.type" ng-click="add.deleteService($index)" class="btn btn-xs btn-danger glyphicon glyphicon-trash"></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  <div class="btn-group">
+				 <button  ng-disabled="!add.server.hostname" class="btn btn-info" ng-click="add.save()">Save</button>
+                <a href="#/admin/servers" class="btn btn-warning" > Cancel</a>
+			</div>
+  </form>
+</div>

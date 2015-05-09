@@ -1,0 +1,33 @@
+<span ng-class="{'led-idle':!fixture.runStatus.tornado,
+           'led-start':fixture.runStatus.tornado=='start',
+           'led-error':fixture.runStatus.tornado=='error',
+           'led-complete':fixture.runStatus.tornado=='complete'}"
+      title="{{'Tornado server'|translate}}"
+      class="glyphicon glyphicon-new-window blue ate-fixture-icon"
+      aria-hidden="true">
+</span>
+<span ng-class="{'led-idle':!fixture.runStatus.tasks,
+           'led-start':fixture.runStatus.tasks=='start',
+           'led-error':fixture.runStatus.tasks=='error',
+           'led-complete':fixture.runStatus.tasks=='complete'}"
+      title="{{'Celery'|translate}}"
+      class="glyphicon glyphicon-log-in green ate-fixture-icon"
+      aria-hidden="true">
+</span>
+<span ng-class="{'led-idle':!fixture.runStatus.tse,
+           'led-start':fixture.runStatus.tse=='start',
+           'led-error':fixture.runStatus.tse=='error',
+           'led-complete':fixture.runStatus.tse=='complete'}"
+      title="{{'Test set executor'|translate}}"
+      class="glyphicon glyphicon-expand ate-fixture-icon"
+      aria-hidden="true">
+</span>
+<span ng-class="{'led-idle':!fixture.runStatus.cleanup,
+           'led-start':fixture.runStatus.cleanup=='start',
+           'led-error':fixture.runStatus.cleanup=='error',
+           'led-complete':fixture.runStatus.cleanup=='complete'}"
+      title="{{'Tests cleanup'|translate}}"
+      class="glyphicon glyphicon-log-out ate-fixture-icon"
+      aria-hidden="true">
+</span>
+

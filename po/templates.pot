@@ -1,0 +1,633 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: src/admin/fixture/views/list/list.html
+#: src/admin/station/views/list/list.back.html
+msgid "-- All --"
+msgstr ""
+
+#: src/admin/views/home/home.html
+msgid ""
+"<div class=\"{{ panel.color }}\">\n"
+"   <div class=\"panel-heading\">\n"
+"    <div class=\"row\">\n"
+"     <div class=\"col-xs-3\">\n"
+"      <i class=\"{{ panel.icon }}\"></i>\n"
+"     </div>\n"
+"     <div class=\"col-xs-9 text-right\">\n"
+"      <div><h2 translate=\"\">{{ panel.name }}</h2></div>\n"
+"     </div>\n"
+"    </div>\n"
+"   </div>\n"
+"   <div class=\"panel-footer\">\n"
+"    <span class=\"pull-left\" translate=\"\">View Details</span>\n"
+"    <span class=\"pull-right\"><i class=\"fa fa-arrow-circle-right\"></i></span>\n"
+"\n"
+"    <div class=\"clearfix\"></div>\n"
+"   </div>\n"
+"  </div>"
+msgstr ""
+
+#: src/tester/views/developer/developer.html
+msgid "Active"
+msgstr ""
+
+#: src/admin/configuration/views/add/add.html
+#: src/admin/dut_configuration/views/add/add.html
+msgid "Add"
+msgstr ""
+
+#: src/admin/configuration/views/add/add.html
+#: src/admin/configuration/views/list/list.html
+#: src/admin/station/views/add/add.html
+msgid "Add Configuration"
+msgstr ""
+
+#: src/admin/dut_configuration/views/add/add.html
+msgid "Add Dut Configuration"
+msgstr ""
+
+#: src/admin/fixture/views/add/add.html
+msgid "Add Fixture"
+msgstr ""
+
+#: src/admin/group/views/add/add.html
+#: src/admin/group/views/list/list.html
+msgid "Add Group"
+msgstr ""
+
+#: src/admin/help/views/add/add.html
+msgid "Add Help"
+msgstr ""
+
+#: src/admin/project/views/add/add.html
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+msgid "Add Project"
+msgstr ""
+
+#: src/admin/project_family/views/editor/editor.html
+msgid "Add Project Family"
+msgstr ""
+
+#: src/admin/celery_queue/celery_queue.html
+msgid "Add Queue"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Add Server"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Add Service"
+msgstr ""
+
+#: src/admin/station/views/add/add.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Add Station"
+msgstr ""
+
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/step/views/add/add.html
+#: src/admin/step/views/list/list.html
+msgid "Add Step"
+msgstr ""
+
+#: src/admin/fixture/views/list/list.html
+#: src/admin/station/views/list/list.back.html
+msgid "Add Test Fixture"
+msgstr ""
+
+#: src/admin/test_sequence/views/add/add.html
+#: src/admin/test_sequence/views/edit/edit.html
+#: src/admin/user/views/add/add.html
+#: src/admin/user/views/list/list.html
+msgid "Add User"
+msgstr ""
+
+#: src/admin/help/views/add/add.html
+msgid "Add help"
+msgstr ""
+
+#: src/admin/celery_queue/celery_queue.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/group/views/list/list.html
+#: src/admin/help/views/list/list.html
+#: src/admin/project/views/add/add.html
+#: src/admin/project/views/edit/edit.html
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+#: src/admin/server/views/list/list.html
+#: src/admin/station/views/add/add.html
+#: src/admin/station/views/list/list.back.html
+#: src/admin/station/views/list/list.html
+#: src/admin/step/views/add/add.html
+#: src/admin/step/views/edit/edit.html
+#: src/admin/step/views/list/list.html
+#: src/admin/test_sequence/views/add/add.html
+#: src/admin/test_sequence/views/edit/edit.html
+#: src/admin/test_sequence/views/list/list.html
+#: src/admin/user/views/list/list.html
+#: src/admin/views/home/home.html
+msgid "Admin"
+msgstr ""
+
+#: src/admin/views/home/home.html
+msgid "Admin Dashboard"
+msgstr ""
+
+#: src/tester/views/batch/batch.html
+msgid "Batch Number"
+msgstr ""
+
+#: src/admin/project/views/edit/edit.html
+#: src/admin/step/views/edit/edit.html
+#: src/admin/test_sequence/views/edit/edit.html
+msgid "Cancel"
+msgstr ""
+
+#: src/tester/directives/run_stage_indicator/ate_run_stage_indicator.html
+msgid "Celery"
+msgstr ""
+
+#: src/admin/fixture/views/add/add.html
+msgid "Celery Queue"
+msgstr ""
+
+#: src/admin/celery_queue/celery_queue.html
+msgid "Celery Queues"
+msgstr ""
+
+#: src/tester/views/pseudo_station/pseudo_station.html
+msgid "Change"
+msgstr ""
+
+#: src/tester/directives/fixture_buttons/ate_fixture_buttons.html
+msgid "Clear"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+#: src/admin/server/views/list/list.html
+msgid "Comments"
+msgstr ""
+
+#: src/admin/configuration/views/list/list.html
+#: src/admin/dut_configuration/views/add/add.html
+#: src/admin/dut_configuration/views/list/list.html
+msgid "Configuration"
+msgstr ""
+
+#: src/admin/dut_configuration/views/list/list.html
+#: src/admin/station/views/list/list.html
+msgid "Configurations"
+msgstr ""
+
+#: src/admin/dut_configuration/views/list/list.html
+msgid "DUT Configuration Id"
+msgstr ""
+
+#: src/admin/project/views/list/list.html
+#: src/admin/station/views/add/add.html
+#: src/admin/station/views/list/list.html
+#: src/admin/step/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Delete"
+msgstr ""
+
+#: src/admin/station/views/list/list.back.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Department"
+msgstr ""
+
+#: src/admin/configuration/views/add/add.html
+#: src/admin/configuration/views/list/list.html
+#: src/admin/group/views/add/add.html
+#: src/admin/group/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+#: src/admin/station/views/list/list.back.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Description"
+msgstr ""
+
+#: src/admin/configuration/views/list/list.html
+#: src/admin/dut_configuration/views/list/list.html
+msgid "Dut Configurations"
+msgstr ""
+
+#: src/admin/project/views/list/list.html
+#: src/admin/station/views/list/list.back.html
+#: src/admin/station/views/list/list.html
+#: src/admin/step/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Edit"
+msgstr ""
+
+#: src/tester/views/developer/developer.html
+msgid "Fixture Report"
+msgstr ""
+
+#: src/admin/fixture/views/list/list.html
+msgid "Fixtures"
+msgstr ""
+
+#: src/tester/directives/fixture_buttons/ate_fixture_buttons.html
+msgid "Force Stop"
+msgstr ""
+
+#: src/admin/group/views/add/add.html
+msgid "Group Actions"
+msgstr ""
+
+#: src/admin/group/views/add/add.html
+#: src/admin/group/views/list/list.html
+msgid "Group Name"
+msgstr ""
+
+#: src/admin/group/views/list/list.html
+msgid "Groups"
+msgstr ""
+
+#: src/admin/help/views/list/list.html
+msgid "Help"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+#: src/admin/server/views/list/list.html
+#: src/common/dev_ops/views/list/list.html
+msgid "Hostname"
+msgstr ""
+
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+msgid "ID"
+msgstr ""
+
+#: src/common/dev_ops/views/list/list.html
+msgid "IP"
+msgstr ""
+
+#: src/admin/server/views/list/list.html
+msgid "IP Address"
+msgstr ""
+
+#: src/admin/help/views/add/add.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+msgid "Id"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Instances"
+msgstr ""
+
+#: src/admin/fixture/views/list/list.html
+msgid "Ip"
+msgstr ""
+
+#: src/admin/fixture/views/add/add.html
+msgid "Ip address"
+msgstr ""
+
+#: src/admin/station/views/list/list.back.html
+#: src/admin/station/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Ip/Host"
+msgstr ""
+
+#: src/common/preference/preference.html
+msgid "Language"
+msgstr ""
+
+#: src/common/directives/log_panel/ate_log_panel.html
+msgid "Level"
+msgstr ""
+
+#: src/admin/station/views/list/list.back.html
+#: src/admin/station/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+#: src/admin/user/views/list/list.html
+msgid "Location"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Log URL"
+msgstr ""
+
+#: src/common/auth/views/login/login.html
+msgid "Login"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Monitor URL"
+msgstr ""
+
+#: src/admin/group/views/add/add.html
+msgid "More Actions"
+msgstr ""
+
+#: src/admin/user/views/add/add.html
+msgid "More Groups"
+msgstr ""
+
+#: src/admin/configuration/views/add/add.html
+#: src/admin/configuration/views/list/list.html
+#: src/admin/dut_configuration/views/add/add.html
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+#: src/admin/station/views/list/list.back.html
+#: src/admin/station/views/list/list.html
+#: src/admin/step/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Name"
+msgstr ""
+
+#: src/admin/server/views/list/list.html
+msgid "Operation System"
+msgstr ""
+
+#: src/admin/fixture/views/add/add.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/project/views/list/list.html
+#: src/admin/step/views/list/list.html
+msgid "Part Number"
+msgstr ""
+
+#: src/common/auth/views/login/login.html
+msgid "Password"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Port"
+msgstr ""
+
+#: src/common/preference/preference.html
+msgid "Preferences"
+msgstr ""
+
+#: src/admin/configuration/views/list/list.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/station/views/list/list.back.html
+msgid "Project"
+msgstr ""
+
+#: src/admin/configuration/views/add/add.html
+#: src/admin/configuration/views/list/list.html
+#: src/admin/fixture/views/add/add.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/project/views/add/add.html
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+#: src/admin/step/views/list/list.html
+msgid "Project Families"
+msgstr ""
+
+#: src/admin/configuration/views/add/add.html
+#: src/admin/configuration/views/list/list.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/station/views/list/list.back.html
+msgid "Project Family"
+msgstr ""
+
+#: src/admin/project_family/views/detail/detail.html
+msgid "Project Family Details"
+msgstr ""
+
+#: src/admin/project_family/views/editor/editor.html
+msgid "Project Family Name"
+msgstr ""
+
+#: src/admin/project/views/edit/edit.html
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+msgid "Projects"
+msgstr ""
+
+#: src/tester/directives/fixture_buttons/ate_fixture_buttons.html
+msgid "Report"
+msgstr ""
+
+#: src/tester/directives/fixture_buttons/ate_fixture_buttons.html
+msgid "Run"
+msgstr ""
+
+#: src/tester/views/developer/developer.html
+msgid "Run Auto Text"
+msgstr ""
+
+#: src/admin/group/views/add/add.html
+#: src/admin/project/views/add/add.html
+#: src/admin/project/views/edit/edit.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/step/views/add/add.html
+#: src/admin/step/views/edit/edit.html
+#: src/admin/test_sequence/views/add/add.html
+#: src/admin/test_sequence/views/edit/edit.html
+#: src/admin/user/views/add/add.html
+msgid "Save"
+msgstr ""
+
+#: src/admin/group/views/list/list.html
+#: src/admin/help/views/list/list.html
+#: src/admin/project/views/list/list.html
+#: src/admin/server/views/list/list.html
+#: src/admin/station/views/list/list.html
+#: src/admin/step/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+#: src/admin/user/views/list/list.html
+msgid "Search"
+msgstr ""
+
+#: src/tester/views/batch/batch.html
+msgid "Send"
+msgstr ""
+
+#: src/admin/server/views/list/list.html
+msgid "Servers"
+msgstr ""
+
+#: src/admin/server/views/add/add.html
+msgid "Service Type"
+msgstr ""
+
+#: src/common/dev_ops/views/list/list.html
+msgid "Software Version"
+msgstr ""
+
+#: src/admin/fixture/views/list/list.html
+msgid "Station"
+msgstr ""
+
+#: src/admin/station/views/add/add.html
+#: src/admin/station/views/list/list.back.html
+#: src/admin/station/views/list/list.html
+#: src/admin/test_sequence/views/list/list.html
+msgid "Stations"
+msgstr ""
+
+#: src/common/dev_ops/views/list/list.html
+msgid "Status"
+msgstr ""
+
+#: src/admin/configuration/views/list/list.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/station/views/list/list.back.html
+msgid "Step"
+msgstr ""
+
+#: src/admin/project/views/list/list.html
+#: src/admin/project_family/views/detail/detail.html
+#: src/admin/project_family/views/editor/editor.html
+#: src/admin/step/views/add/add.html
+#: src/admin/step/views/edit/edit.html
+#: src/admin/step/views/list/list.html
+msgid "Steps"
+msgstr ""
+
+#: src/tester/directives/fixture_buttons/ate_fixture_buttons.html
+#: src/tester/views/developer/developer.html
+msgid "Stop"
+msgstr ""
+
+#: src/admin/fixture/views/list/list.html
+msgid "Test Fixtures"
+msgstr ""
+
+#: src/admin/project/views/list/list.html
+#: src/admin/step/views/list/list.html
+msgid "Test Sequences"
+msgstr ""
+
+#: src/tester/directives/run_stage_indicator/ate_run_stage_indicator.html
+msgid "Test set executor"
+msgstr ""
+
+#: src/tester/directives/run_stage_indicator/ate_run_stage_indicator.html
+msgid "Tests cleanup"
+msgstr ""
+
+#: src/common/directives/log_panel/ate_log_panel.html
+msgid "Text"
+msgstr ""
+
+#: src/common/preference/preference.html
+msgid "Theme"
+msgstr ""
+
+#: src/common/directives/log_panel/ate_log_panel.html
+msgid "Time"
+msgstr ""
+
+#: src/admin/help/views/add/add.html
+#: src/admin/help/views/list/list.html
+msgid "Title"
+msgstr ""
+
+#: src/tester/directives/run_stage_indicator/ate_run_stage_indicator.html
+msgid "Tornado server"
+msgstr ""
+
+#: src/common/dev_ops/views/list/list.html
+msgid "Update"
+msgstr ""
+
+#: src/admin/user/views/add/add.html
+msgid "User Groups"
+msgstr ""
+
+#: src/admin/user/views/list/list.html
+msgid "User Name"
+msgstr ""
+
+#: src/common/auth/views/login/login.html
+msgid "Username"
+msgstr ""
+
+#: src/admin/test_sequence/views/add/add.html
+#: src/admin/test_sequence/views/edit/edit.html
+#: src/admin/user/views/list/list.html
+msgid "Users"
+msgstr ""
+
+#: src/admin/views/home/home.html
+msgid "View Details"
+msgstr ""
+
+#: src/tester/directives/alert_panel/ate_alert_panel.html
+#: src/tester/directives/alert_panel_srv/ate_alert_panel_srv.html
+msgid "WebSocket"
+msgstr ""
+
+#: src/admin/celery_queue/celery_queue.html
+msgid "Worker Host"
+msgstr ""
+
+#: src/admin/celery_queue/celery_queue.html
+msgid "Worker Queues"
+msgstr ""
+
+#: src/tester/views/batch/batch.html
+msgid "cfg_pn"
+msgstr ""
+
+#: src/tester/views/batch/batch.html
+msgid "cfg_pn_rev"
+msgstr ""
+
+#: src/common/directives/log_panel/ate_log_panel.html
+msgid "data"
+msgstr ""
+
+#: src/common/directives/log_panel/ate_log_panel.html
+msgid "entity"
+msgstr ""
+
+#: src/admin/help/views/list/list.html
+msgid "helps"
+msgstr ""
+
+#: src/admin/dut_configuration/views/add/add.html
+msgid "info"
+msgstr ""
+
+#: src/admin/dut_configuration/views/add/add.html
+msgid "limits"
+msgstr ""
+
+#: src/admin/dut_configuration/views/list/list.html
+msgid "name"
+msgstr ""
+
+#: src/admin/dut_configuration/views/add/add.html
+#: src/admin/dut_configuration/views/list/list.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/station/views/add/add.html
+msgid "pn_cfg"
+msgstr ""
+
+#: src/admin/dut_configuration/views/add/add.html
+#: src/admin/dut_configuration/views/list/list.html
+#: src/admin/fixture/views/list/list.html
+#: src/admin/station/views/add/add.html
+msgid "pn_cfg_rev"
+msgstr ""
+
+#: src/admin/step/views/list/list.html
+msgid "search"
+msgstr ""
+
+#: src/admin/views/home/home.html
+msgid "{{ panel.name }}"
+msgstr ""
+
+#: src/admin/station/views/add/add.html
+msgid "{{add.station.ip_address}}"
+msgstr ""

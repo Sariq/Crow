@@ -1,0 +1,80 @@
+<h1 class="page-header" translate>Executions</h1>
+<ol class="breadcrumb">
+    <li><a href="#/" translate>Monitor</a></li>
+    <li class="active" translate>Executions</li>
+</ol>
+
+<div>
+    <form class="form-inline">
+
+        <div class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{ format }}" ng-model="query.start_date"
+                   is-open="openedStart" min-date="minDate" datepicker-options="dateOptions"
+                   date-disabled="disabled(date, mode)" ng-required="false" close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openStart($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+        </div>
+
+        <div class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{ format }}" ng-model="query.end_date"
+                   is-open="openedEnd" min-date="minDate" datepicker-options="dateOptions"
+                   date-disabled="disabled(date, mode)" ng-required="false" close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openEnd($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+        </div>
+
+        <div class="input-group">
+            <label class="sr-only" for="inputBatch">Batch number</label>
+            <input type="text" class="form-control" id="inputBatch" ng-model="query.batch"
+                   placeholder="Batch number">
+        </div>
+
+        <div class="input-group">
+            <label class="sr-only" for="inputPN_CFG">PNG_CFG</label>
+            <input type="text" class="form-control" id="inputPN_CFG" ng-model="query.pn_cfg"
+                   placeholder="PNG_CFG">
+        </div>
+
+        <div class="input-group">
+            <label class="sr-only" for="inputPNG_CFG_REV">PNG_CFG_REV</label>
+            <input type="text" class="form-control" id="inputPNG_CFG_REV" ng-model="query.pn_cfg_rev"
+                   placeholder="PNG_CFG_REV">
+        </div>
+
+        <div class="input-group">
+            <select class="form-control" id="selectLimit" ng-model="query.limit">
+                <option ng-repeat="val in [10,20,50,100,200,300,500, 1000]">{{ val }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success" ng-click="doSearch()">Search</button>
+        <button type="submit" class="btn btn-success" ng-click="doClear()">Clear</button>
+    </form>
+
+    </br>
+
+    <table ng-table="tableParams" class="table">
+        <tr ng-repeat="item in $data">
+            <td data-title="'Timestamp'" sortable="'timestamp'">{{ item.timestamp | date: "medium"}}</td>
+            <td data-title="'Serial'" sortable="'serial'">
+                <a ng-repeat="serial in item.serial track by $index" href="/monitor/#/report_serial/{{ serial }}">
+                    {{ serial }}{{$last === false ? ", " : ""}}
+                </a>
+            </td>
+            <td data-title="'Batch Number'" sortable="'batch'">{{ item.batch }}</td>
+            <td data-title="'Part Number'" sortable="'pn_cfg'">{{ item.pn_cfg }}</td>
+            <td data-title="'PN_CFG_REC'" sortable="'pn_cfg_rev'">{{ item.pn_cfg_rev }}</td>
+            <td data-title="'Duration'" sortable="'duration'">{{ item.duration }}</td>
+            <td data-title="'User'" sortable="'verdict'">{{ item.user }}</td>
+            <td data-title="'Verdict'" sortable="'verdict'"
+                ng-class="{danger: item.verdict===false, success: item.verdict===true}">
+                {{ item.verdict === true ? "PASS" : "FAIL"}}</td>
+        </tr>
+    </table>
+</div>

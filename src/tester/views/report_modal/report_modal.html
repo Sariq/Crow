@@ -1,0 +1,23 @@
+<div id="printModal">
+    <div class="modal-header ">
+        <h1 class="modal-title report-modal-title">{{ items.data.title }}</h1>
+        <span class="pull-right">Date: {{ items.data.date }}</span>
+        <table class="table table-stripped">
+            <tr ng-repeat="line in items.data.report track by $index"
+                class="report-modal-heading">
+                <td ng-class="cell.format"
+                    ng-repeat="cell in line track by $index"
+                    class="report-modal-data">{{ cell.value | limitTo : 20}}{{cell.value.length > 45 ? '...' : ''}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <span class="pull-left">Report generated in: {{ items.data.generation_time }}</span>
+        <button class="btn btn-primary" ng-click="printReport('printModal')">
+            <span class="glyphicon glyphicon-print"></span>
+            Print
+        </button>
+        <button class="btn btn-success" ng-click="ok()">OK</button>
+    </div>
+</div>

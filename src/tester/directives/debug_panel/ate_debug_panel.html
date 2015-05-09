@@ -1,0 +1,23 @@
+<div>
+<a ng-click="showDebug = !showDebug;">Debug Panel</a>
+<tabset ng-if="showDebug">
+    <tab heading="Logger">
+        <ate-log-panel></ate-log-panel>
+    </tab>
+    <tab heading="Fixture Debug">
+        <ate-fixture-debug></ate-fixture-debug>
+    </tab>
+    <tab heading="Batch">
+        <pre pretty-json="station.batch"></pre>
+    </tab>
+    <tab heading="Configuration">
+        <pre pretty-json="station.batch.batch_conf.configuration"></pre>
+    </tab>
+    <tab heading="Production step">
+        <pre pretty-json="station.batch.batch_conf.production_step"></pre>
+    </tab>
+    <tab heading="Fixtures">
+        <pre pretty-json="station.fixtures"></pre>
+    </tab>
+</tabset>
+ </div>

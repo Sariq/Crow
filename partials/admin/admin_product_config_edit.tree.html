@@ -1,0 +1,46 @@
+<div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div ng-if="debug" class="alert alert-warning" role="alert">{{debug}}</div>
+
+
+<h3>Product Configuration</h3>
+<form role="form">
+
+  <div class="row">
+    <div class="form-group">
+      <label for="pn_cfg">Product Number</label>
+      <input ng-model="productConfig.pn_cfg" class="form-control" id="pn_cfg" placeholder="Product Number">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label for="pn_cfg_rev">Revision</label>
+      <input ng-model="productConfig.pn_cfg_rev" class="form-control" id="pn_cfg_rev" placeholder="Product Number">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="pn_cfg_rev">Revision</label>
+      <input ng-model="productConfig.pn_cfg_rev" class="form-control" id="pn_cfg_rev" placeholder="Product Number">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label for="tse">TSE</label>
+      <textarea ng-model="productConfig.tse" class="form-control" id="tse" placeholder="TSE - JSON"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="info">Info</label>
+      <textarea ng-model="productConfig.info" class="form-control" id="info" placeholder="Info - JSON"></textarea>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="clear" class="btn btn-default">Cancel</button>
+  </div>
+</form>
+
+

@@ -1,0 +1,129 @@
+<tabset>
+  <tab heading="users">
+    <div class="well">
+      <input ng-model="searchUser" placeholder="search">
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <td>User</td>
+        <td>Last Login</td>
+        <td>Yield</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="user in users|filter:searchUser">
+        <td>{{user._id}}</td>
+        <td>{{user.last_login}}</td>
+        <td>{{user.yield}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </tab>
+  <tab heading="stations">
+    <div class="well">
+      <input ng-model="searchStation" placeholder="search">
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <td>Station</td>
+        <td>Location</td>
+        <td>Tester</td>
+        <td>Batch</td>
+        <td>Yield</td>
+        <td>Test Fixtures</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="station in stations|filter:searchStation">
+        <td>{{station._id}}</td>
+        <td>{{station.location}}</td>
+        <td>{{station.tester}}</td>
+        <td>{{station.batch}}</td>
+        <td>{{station.yield}}</td>
+        <td><span ng-class="tf.status" ng-repeat="tf in getStationTf(station)">
+                <a href="#/tf/{{tf.id}}">{{tf.name}}</a>
+            </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </tab>
+  <tab heading="test fixture">
+    <div class="well">
+      <input ng-model="searchFixtures" placeholder="search">
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <td>Test Fixture</td>
+        <td>IP Address</td>
+        <td>RPC</td>
+        <td>OS</td>
+        <td>Cavities</td>
+        <td>Station</td>
+        <td>Tester</td>
+        <td>Yield</td>
+        <td>Last Ping</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="tf in fixtures|filter:searchFixtures">
+        <td>{{tf.data.name}}</td>
+        <td>{{tf.data.ip}}</td>
+        <td>{{tf.RPC}}</td>
+        <td>{{tf.data.os}}</td>
+        <td>
+          <span ng-repeat="cav in tf.data.cavity_status">{{$index}} - {{cav}}</span>
+        </td>
+        <td>{{tf.station.ip_address}}</td>
+        <td>{{tf.tester}}</td>
+        <td>{{tf.yield}}</td>
+        <td>{{tf.time}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </tab>
+  <tab heading="servers">
+
+    <div class="well">
+      <input ng-model="searchServers" placeholder="search">
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <td>Server</td>
+        <td>Last Restart</td>
+        <td>Status</td>
+        <td>Comments</td>
+        <td>Services</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="server in servers|filter:searchServers">
+        <td>{{server.hostname}}</td>
+        <td></td>
+        <td>{{server.logs}}</td>
+        <td>{{server.status}}</td>
+        <td>{{server.comments}}</td>
+        <td>
+          <table>
+            <tr ng-repeat="service in server.services">
+              <td>{{service.type}}</td>
+              <td>
+                <a target="_blank" class="btn btn-xs btn-info" ng-if="service.monitor_url"
+                   href="{{service.monitor_url}}"> Monitor</a>
+              </td>
+              <td>
+                <a target="_blank" class="btn btn-xs btn-warning" ng-if="service.log_url" href="{{service.log_url}}">Logs</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </tab>
+</tabset>

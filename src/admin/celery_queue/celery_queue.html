@@ -1,0 +1,38 @@
+<h1 class="page-header" translate>Celery Queues</h1>
+
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li class="active" translate>Celery Queues</li>
+</ol>
+
+<div ng-if="celery.error" class="alert alert-danger" role="alert">{{ celery.error }}</div>
+<div ng-if="celery.debug" class="alert alert-warning" role="alert">{{ celery.debug }}</div>
+
+<table class="table">
+ <tr>
+  <td translate>Worker Host</td>
+  <td translate>Worker Queues</td>
+  <td translate>Add Queue</td>
+ </tr>
+ <tr ng-repeat="w in celery.workers">
+  <td >{{w.host}}</td>
+  <td >
+   <button class="btn btn-danger" ng-click="celery.removeWorkerQueue(w,q)" ng-repeat="q in w.queues">{{q}}</button>
+  </td>
+  <td >
+   <button class="btn btn-info" ng-click="celery.addWorkerQueue(w,q)" ng-repeat="q in celery.notInQueue(w)">{{q}}</button>
+  </td>
+ </tr>
+</table>
+
+<div class="well">
+<ul class="list-group">
+  <li ng-repeat="q in celery.queues" class="list-group-item">{{q}}</li>
+</ul>
+<input ng-model="celery.newQueue" placeholder="new Queue">
+ <button class="btn btn-success" ng-click="celery.addQueue()" translate>Add Queue</button>
+</div>
+
+<div class="btn-group">
+ <button class="btn btn-info" translate>Save</button>
+</div>

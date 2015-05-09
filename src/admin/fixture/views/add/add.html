@@ -1,0 +1,185 @@
+<h1 class="page-header" translate>Add Fixture</h1>
+<ol class="breadcrumb">
+ <li><a href="#/">Admin</a></li>
+ <li><a href="#/projectEditor" translate>Project Families</a></li>
+ <li ng-if="add.project_family_id"><a href="#/fixtures/{{add.project_family_id}}/{{add.project_id}}/{{add.step_id}}">Test
+  Fixtures</a></li>
+ <li ng-if="!add.project_family_id"><a href="#/fixtures">Test Fixtures</a></li>
+ <li ng-if="add.isNew" class="active">Add</li>
+ <li ng-if="!add.isNew" class="active">{{add.fixture.pn}}</li>
+</ol>
+
+
+<div ng-if="add.fixture.error" class="alert alert-danger" role="alert">{{add.fixture.error}}</div>
+<div ng-if="add.fixture.debug" class="alert alert-warning" role="alert">{{add.fixture.debug}}</div>
+
+
+<div class="well">
+ <form class="form-horizontal" role="form">
+  <div ng-class="{'has-error':!add.fixture.project_family_id}" class="form-group">
+   <label for="project-family" class="col-sm-2 control-label">Project Family</label>
+   <div class="col-sm-10">
+    <select class="form-control"
+            id="project-family"
+            ng-model="add.fixture.project_family_id"
+            ng-options="pf._id as pf.name  for pf in add.projectFamilies"
+            ng-change="add.projectFamiliesChange(true)"></select>
+   </div>
+  </div>
+  <div ng-class="{'has-error':!add.fixture.project_id}" class="form-group">
+   <label for="project" class="col-sm-2 control-label">Project</label>
+   <div class="col-sm-10">
+    <select class="form-control"
+            id="project"
+            ng-model="add.fixture.project_id"
+            ng-options="project.id as project.name  for project in add.projects"
+            ng-change="add.projectChange(true)"></select>
+   </div>
+  </div>
+  <div ng-class="{'has-error':!add.fixture.step_id}" class="form-group">
+   <label for="step" class="col-sm-2 control-label">Step</label>
+   <div class="col-sm-10">
+    <select class="form-control" id="step" ng-model="add.fixture.step_id"
+            ng-options="step.id as step.name  for step in add.steps"></select>
+   </div>
+  </div>
+  <div ng-class="{'has-error':!add.fixture.pn}" class="form-group">
+   <label for="pn" class="col-sm-2 control-label" translate>Part Number</label>
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.fixture.pn" id="pn" placeholder="pn">
+   </div>
+  </div>
+  <div class="form-group ">
+   <label for="ip_address" class="col-sm-2 control-label" translate>Ip address</label>
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.fixture.ip_address" id="ip_address"
+           placeholder="Ip address" required>
+   </div>
+  </div>
+  <div class="form-group ">
+   <label for="pn_cfg" class="col-sm-2 control-label">pn_cfg</label>
+
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.fixture.pn_cfg" id="pn_cfg"
+           placeholder="pn_cfg" required>
+   </div>
+  </div>
+  <div class="form-group ">
+   <label for="pn_cfg_rev" class="col-sm-2 control-label">pn_cfg_rev</label>
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.fixture.pn_cfg_rev" id="pn_cfg_rev"
+           placeholder="pn_cfg_rev" required>
+   </div>
+  </div>
+
+
+  <div class="form-group">
+   <label for="celery_queue" class="col-sm-2 control-label" translate>Celery Queue</label>
+   <div class="col-sm-10">
+    <select class="form-control" id="celery_queue" ng-model="add.fixture.celery_queue"
+            ng-options="q as q for q in add.info.celery_queues">
+    </select>
+   </div>
+  </div>
+
+  <!--
+  <div class="form-group ">
+   <label for="host" class="col-sm-2 control-label">Host Name</label>
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.fixture.host" id="host"
+           placeholder="Hostname or ip address" required>
+   </div>
+  </div>
+  -->
+  <div class="form-group">
+   <label for="device" class="col-sm-2 control-label">Device</label>
+
+   <div class="col-sm-10">
+    <input type="text" class="form-control" ng-model="add.fixture.device" id="device" placeholder="Device">
+   </div>
+  </div>
+
+  <!--
+  <div class="form-group">
+   <label for="os" class="col-sm-2 control-label">Operating System</label>
+   <div class="col-sm-10">
+    <select class="form-control" id="os" ng-model="add.fixture.os" ng-options="o as o for o in add.info.os"></select>
+   </div>
+  </div>
+  -->
+  <div class="form-group">
+   <label for="cavities" class="col-sm-2 control-label" required>Number of cavities</label>
+
+   <div class="col-sm-10">
+    <input type="number" class="form-control" ng-model="add.fixture.cavities" id="cavities"
+           placeholder="Number of cavities">
+   </div>
+  </div>
+
+
+  <div class="form-group">
+   <label for="horizontal_cavities" class="col-sm-2 control-label">Horizontal Cavities</label>
+
+   <div class="col-sm-10">
+    <input type="number" class="form-control" ng-model="add.fixture.horizontal_cavities" id="horizontal_cavities"
+           placeholder="Horizontal Cavities">
+   </div>
+  </div>
+
+
+  <div class="form-group">
+   <label for="station" class="col-sm-2 control-label">Station</label>
+
+   <div class="col-sm-10">
+    <select class="form-control" id="station" ng-model="add.fixture.station"
+            ng-options="station._id as station.name for station in add.stations">
+    </select>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="location" class="col-sm-2 control-label">Location</label>
+
+   <div class="col-sm-10">
+    <select class="form-control" id="location" ng-model="add.fixture.location"
+            ng-options="location as location for location in add.info.locations"></select>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="location" class="col-sm-2 control-label">require_serial</label>
+
+   <div class="col-sm-10">
+    <input type="checkbox" class="btn-primary" ng-model="add.fixture.require_serial">
+   </div>
+  </div>
+
+
+  <div class="form-group">
+   <div class="col-sm-2 control-label"></div>
+   <div class="col-sm-10">
+    <div class="btn-group col-sm-10">
+     <button
+       ng-disabled="!add.fixture.pn || !add.fixture.project_family_id || !add.fixture.project_id || !add.fixture.step_id"
+       style="width: 50%;" ng-click="add.save();" class="btn btn-info">Save
+     </button>
+     <a style="width: 50%;" href="#/admin/test_fixtures" class="btn btn-warning">Cancel</a>
+    </div>
+   </div>
+  </div>
+
+  <!--
+  <table class="table">
+   <tr>
+    <td translate>Fixture Width</td>
+    <td translate>Cavity Width</td>
+   </tr>
+   <tr ng-repeat="conf in add.fixture.gui_conf">
+    <td><select ng-model="conf.fixture_width" ng-options="w as w for w in add.info.fixture_width"></select></td>
+    <td><select ng-model="conf.cavity_width" ng-options="w as w for w in add.info.cavity_width"></select></td>
+   </tr>
+  </table>
+  <button ng-click="add.addGuiConf(add.fixture)" class="btn btn-info" translate>Add GUI Configuration</button>
+ -->
+ </form>
+</div>

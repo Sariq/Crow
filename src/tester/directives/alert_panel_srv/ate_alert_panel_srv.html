@@ -1,0 +1,21 @@
+<div class="well alert-panel">
+ <button
+   tooltip="{{'WebSocket'|translate}}"
+   tooltip-trigger="mouseenter"
+   tooltip-placement="right"
+   ng-class="{'btn-danger': WebSocketStatus.status=='offline','btn-success': WebSocketStatus.status =='online'}"
+   class="btn btn-xs">
+  <span class="glyphicon glyphicon-cloud-upload "></span>
+ </button>
+ <div ng-repeat="srv in serverStatuses"> {{srv}}</div>
+ <button ng-repeat="srv in serverStatuses"
+   tooltip="{{srv.info}}"
+   tooltip-trigger="mouseenter"
+   tooltip-placement="right"
+   ng-class="{'btn-danger': srv.status=='offline',
+         'btn-success': srv.status=='online','btn-warning': srv.status=='warning'}"
+   class="btn btn-xs">
+  <span class="glyphicon glyphicon-cloud-upload"
+    >{{srv.name}}</span>
+ </button>
+</div>

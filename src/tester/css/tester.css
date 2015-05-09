@@ -1,0 +1,16 @@
+.station-panel{
+    background-color: #eeeeee;
+    border-color: #333333;
+    padding: 3px;
+    margin: 3px;
+    margin-bottom: 15px;
+}
+
+.center-modal {
+    position: fixed;
+    top: 35%;
+}
+
+.ate-tester-station-block {
+    padding: 5px;
+}

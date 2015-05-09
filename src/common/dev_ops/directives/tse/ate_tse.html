@@ -1,0 +1,13 @@
+<tr>
+ <td>{{tse.ip}}</td>
+ <td>{{tse.hostname}}</td>
+ <td>{{tse.software_version}}</td>
+ <td>{{tse.status}}</td>
+ <td><button ng-click="updateTseSoftware(tse)">Update</button></td>
+</tr>
+<tr class="danger"  ng-if="tse.error">
+ <td colspan="5">{{tse.error}}</td>
+</tr>
+<tr class="warning" ng-if="tse.debug">
+ <td colspan="5">{{tse.debug}}</td>
+</tr>

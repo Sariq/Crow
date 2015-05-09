@@ -1,0 +1,62 @@
+<div class="panel panel-primary row">
+    <div class="panel-heading">
+        <div class="pull-left">Batch Number:454545
+            <button class="btn btn-info" type="button" translate>Change</button>
+        </div>
+
+        <div class="pull-right">
+            <button class="btn btn-primary" type="button">
+                Current Time: <span class="badge">15:06:36</span>
+            </button>
+        </div>
+
+        <div class="pull-right">
+            <button class="btn" type="button">
+                Yield: <span class="badge">85%</span>
+            </button>
+            <button class="btn" type="button">
+                Passed: <span class="badge">85</span>
+            </button>
+            <button class="btn" type="button">
+                Failed: <span class="badge">15</span>
+            </button>
+        </div>
+    </div>
+    <div class="panel-body station-panel-body">
+        <div class="row station-fix-margin">
+            <ate-fixture ng-repeat="fixture in station.fixtures"></ate-fixture>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+
+
+<div class="row"></div>
+<div ng-repeat="fixture in station.fixtures" class="col-lg-6">
+    <h4>{{fixture.pn}}</h4>
+    Run Status: <select ng-model="fixture.status" ng-options="s as s for s in station.runStatuses"></select>
+    Yield: <input ng-model="fixture.statistics.yield" size="4">
+    <h5>Cavities</h5>
+
+    <div class="row">
+        <div class="col-lg-2" ng-repeat="cavity in fixture.cavities">
+            <div>Requires Serial:<input type="checkbox" ng-model="cavity.require_serial"></div>
+            <div>status: <select ng-model="cavity.status" ng-options="s as s for s in station.cavityStatuses"></select>
+            </div>
+            <div>Enabled:<input type="checkbox" ng-model="cavity.enabled"></div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-warning">
+
+ <div class="panel-body">
+    Panel content
+  </div>
+  <div class="panel-footer">Panel footer</div>
+
+</div>
+
+
+

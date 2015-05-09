@@ -1,0 +1,40 @@
+<h1 class="page-header" translate>Users</h1>
+<ol class="breadcrumb">
+ <li><a href="#/" translate>Admin</a></li>
+ <li class="active" translate>Users</li>
+</ol>
+
+<div class="well">
+  <label translate>Search</label> <input placeholder="{{'Search'|translate}}" ng-model="q">
+  <a class="btn btn-info" href="#/user/add"><span class="fa fa-plus" ></span>{{'Add User'|translate}}</a>
+</div>
+
+
+<table class="table table-striped">
+ <thead>
+ <tr>
+  <td></td>
+  <td translate>User Name</td>
+  <td translate>Location</td>
+ </tr>
+ </thead>
+ <tbody>
+ <tr ng-repeat="user in list.users|filter:q">
+  <td>{{$index}}</td>
+  <td>{{user.username}}</td>
+  <td>{{user.location}}</td>
+  <td>
+   <a class="btn btn-warning btn-xs glyphicon glyphicon-pencil" href="#/user/edit/{{user._id}}"></a>
+  </td>
+  <td>
+       <i object-name="Server" confirm-action="list.remove(user)"  class="btn btn-xs btn-danger glyphicon glyphicon-trash"></i>
+
+  </td>
+ </tr>
+ </tbody>
+</table>
+
+</a>
+  </td>
+  <td>
+  </td>

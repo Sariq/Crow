@@ -1,0 +1,37 @@
+<div info="fixture" class="fixture panel panel-info col-lg-6">
+    <div class="panel-heading">{{fixture._id}}</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="cavity well col-lg-3" ng-class="{'cavity-inactive':!c.active,
+                                                     'cavity-success':c.active && c.runStatus.verdict == 'pass',
+                                                     'cavity-fail':c.active && c.runStatus.verdict == 'fail' }"
+             ng-repeat="c in fixture.cavityInfo">
+          <input ng-model="c.serial" class="form-control"
+                 id="cavity_{{fixture._id}}_{{$index}}"
+                 ng-disabled="!c.active" size="10" placeholder="serial"
+                 ng-keyup="checkKey($event,fixture,$index,c.serial);">
+
+          <div class="progress cavity-progress">
+            <div class="progress-bar progress-bar-striped  cavity-bar"
+                 role="progressbar"
+                 aria-valuenow="60"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 ng-style="{'width':c.runStatus.pre+'%' }">
+              {{c.runStatus.test_name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer row">
+      <div class="col-lg-6">
+        <button ng-click="runTse(fixture)" class="btn btn-success btn-small">Run</button>
+        <button class="btn btn-small">Clear</button>
+        <button class="btn btn-small btn-warning">Report Error</button>
+      </div>
+      <div class="col-lg-6">
+        <span class="fa fa-linux" title="Linux">Yield 98% pass 98, fail2, Errors 32</span>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<form>
+ <div class="form-group">
+  <label for="id_batch"> Batch Number</label>
+  <input type="text" maxlength="255" name="batch" autofocus="autofocus" class="form-control" id="id_batch"
+         placeholder="Enter Batch Number">
+ </div>
+
+
+ <div ng-repeat="box in admin.boxes">
+  <select ng-model="box.type1" ng-options="box3.type as box3.name for box3  in admin.infoBox"></select>{{ box.type }}
+  <button ng-click="admin.addBoxContent(box)">Add Box content</button>
+  <div ng-repeat="box_content in box.content">
+   <!-- <select ng-model="box_content.box_type" ng-options="box.name as box.name for box in admin.boxes" ></select>-->
+   <select ng-model="box_cohntent.box_type" ng-options="box2.type as box2.name for box2  in admin.info"></select>
+
+   <input ng-model="box_content.cnt" placeholder="quantity">
+   <button ng-show="box_cohntent.box_type=='box'" ng-click="admin.addBoxContent(box)">Add Box content</button>
+   {{ box_cohntent.box_type }}
+  </div>
+ </div>
+
+ <button ng-click="admin.addBox()">Add Box</button>
+
+
+</form>
